@@ -1,0 +1,14 @@
+* BD176 — PNP, komplementær til BD175
+.model BD176 PNP (
++ IS=1.2e-12   NF=1.00
++ BF=100       IKF=0.4
++ VAF=50
++ ISE=3.6e-13  NE=2.0
++ BR=5         NR=1.0
++ VAR=30       IKR=0.4
++ RB=5         RC=0.1      RE=0.05
++ CJE=220p     VJE=0.75    MJE=0.4
++ CJC=110p     VJC=0.75    MJC=0.4
++ TF=53n       TR=350n
++ XTB=1.5      EG=1.11
+)

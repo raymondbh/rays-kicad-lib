@@ -1,0 +1,14 @@
+* BD175 — NPN, TO-126, ~30 W, 3 A, fT ≈ 3 MHz
+.model BD175 NPN (
++ IS=1e-12     NF=1.00
++ BF=120       IKF=0.5
++ VAF=50
++ ISE=3e-13    NE=2.0
++ BR=5         NR=1.0
++ VAR=30       IKR=0.5
++ RB=5         RC=0.1      RE=0.05
++ CJE=200p     VJE=0.75    MJE=0.4
++ CJC=100p     VJC=0.75    MJC=0.4
++ TF=53n       TR=300n
++ XTB=1.5      EG=1.11
+)
