@@ -1,2 +1,2 @@
 # rays-kicad-lib
-Raymond's KiCAD library of schematics symbols and PCB footprints (and maybe som 3d models).
+Raymond's KiCAD library of schematics symbols, PCB footprints and SPICE models (and maybe som 3D models). 
