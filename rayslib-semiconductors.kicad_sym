@@ -100,7 +100,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "simulation"
+		(property "ki_keywords" "NPN"
 			(at 0 0 0)
 			(effects
 				(font
@@ -158,17 +158,6 @@
 					(type none)
 				)
 			)
-			(circle
-				(center 1.27 0)
-				(radius 2.8194)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
 			(polyline
 				(pts
 					(xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778) (xy 1.27 -1.778)
@@ -207,6 +196,17 @@
 			)
 		)
 		(symbol "2N3904_1_1"
+			(circle
+				(center 1.27 0)
+				(radius 2.8194)
+				(stroke
+					(width 0.254)
+					(type solid)
+				)
+				(fill
+					(type none)
+				)
+			)
 			(pin input line
 				(at -5.08 0 0)
 				(length 2.54)
@@ -235,7 +235,7 @@
 						)
 					)
 				)
-				(number "1"
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -253,7 +253,7 @@
 						)
 					)
 				)
-				(number "3"
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -362,7 +362,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "simulation"
+		(property "ki_keywords" "PNP"
 			(at 0 0 0)
 			(effects
 				(font
@@ -473,7 +473,7 @@
 						)
 					)
 				)
-				(number "1"
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -491,7 +491,7 @@
 						)
 					)
 				)
-				(number "3"
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -600,7 +600,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "simulation"
+		(property "ki_keywords" "NPN"
 			(at 0 0 0)
 			(effects
 				(font
@@ -862,7 +862,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "simulation"
+		(property "ki_keywords" "PNP"
 			(at 0 0 0)
 			(effects
 				(font
