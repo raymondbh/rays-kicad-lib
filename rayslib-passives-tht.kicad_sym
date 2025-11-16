@@ -54,7 +54,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "C:\\Users\\raymond\\Documents\\rays-kicad-lib\\spice\\Passives.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\Passives.lib"
 			(at 0 0 0)
 			(effects
 				(font
