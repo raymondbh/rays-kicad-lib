@@ -1,0 +1,16 @@
+* Linear potentiometer subcircuit
+* Terminal order: A (top), W (wiper), B (bottom)
+*
+* Parameters:
+*   R   = total resistance (ohms)
+*   POS = wiper position (0..1), 0 = at B, 1 = at A
+*   RW  = wiper contact resistance (ohms)
+
+.SUBCKT POTLIN A W B PARAMS: R=10k POS=0.5 RW=0.1
+
+* Internal node for the wiper
+R_TOP  A    WINT   {R*POS + 1u}     ; upper resistance
+R_BOT  WINT B      {R*(1-POS) + 1u} ; lower resistance
+R_W    WINT W      {RW}             ; wiper contact resistance
+
+.ENDS POTLIN
