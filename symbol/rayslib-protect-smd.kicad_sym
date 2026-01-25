@@ -305,7 +305,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "CDSOD323-T36SC"
+		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/CDSOD323-TxxSC.pdf"
 			(at 6.096 -5.334 0)
 			(effects
 				(font
