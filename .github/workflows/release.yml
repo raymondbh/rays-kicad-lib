@@ -1,0 +1,39 @@
+name: Create PCM release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ngspice
+        run: sudo apt-get update && sudo apt-get install --yes ngspice
+
+      - name: Validate library
+        run: python tools/validate_library.py
+
+      - name: Run ngspice smoke test
+        run: ngspice -b -o ngspice.log tests/smoke/all_models.cir
+
+      - name: Build versioned package
+        shell: bash
+        run: python tools/build_pcm_package.py --version "${GITHUB_REF_NAME#v}"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/*.zip --generate-notes --verify-tag

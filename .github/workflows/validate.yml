@@ -1,0 +1,32 @@
+name: Validate library
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ngspice
+        run: sudo apt-get update && sudo apt-get install --yes ngspice
+
+      - name: Validate symbol and model mappings
+        run: python tools/validate_library.py
+
+      - name: Run ngspice smoke test
+        run: ngspice -b -o ngspice.log tests/smoke/all_models.cir
+
+      - name: Build PCM package
+        run: python tools/build_pcm_package.py
+
+      - name: List package contents
+        run: python -m zipfile --list dist/rays-kicad-lib-1.0.0-pcm.zip

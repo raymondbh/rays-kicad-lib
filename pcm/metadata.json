@@ -1,0 +1,25 @@
+{
+  "$schema": "https://go.kicad.org/pcm/schemas/v1",
+  "name": "Ray's SPICE-ready KiCad Library",
+  "description": "KiCad 10 symbols with bundled ngspice models for electronics education.",
+  "description_full": "A compact KiCad symbol library for electronics education. Every distributed symbol has a bundled ngspice model, verified pin mapping, and an assigned footprint where applicable.",
+  "identifier": "com.github.raymondbh.rays-kicad-lib",
+  "type": "library",
+  "author": {
+    "name": "Raymond Berg Hansen",
+    "contact": {
+      "web": "https://github.com/raymondbh/rays-kicad-lib"
+    }
+  },
+  "license": "MIT",
+  "resources": {
+    "homepage": "https://github.com/raymondbh/rays-kicad-lib"
+  },
+  "versions": [
+    {
+      "version": "1.0.0",
+      "status": "testing",
+      "kicad_version": "10.0"
+    }
+  ]
+}

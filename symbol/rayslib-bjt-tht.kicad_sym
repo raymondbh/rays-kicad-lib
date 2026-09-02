@@ -82,7 +82,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\BJT_NPN.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}/spice/BJT_NPN.lib"
 			(at 0 0 0)
 			(effects
 				(font
@@ -344,7 +344,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\BJT_PNP.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}/spice/BJT_PNP.lib"
 			(at 0 0 0)
 			(effects
 				(font
@@ -537,7 +537,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/149/2n3906-285843.pdf"
+		(property "Datasheet" "https://www.onsemi.com/download/data-sheet/pdf/2n5401-d.pdf"
 			(at 35.56 0 0)
 			(effects
 				(font
@@ -546,7 +546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP General Purpose 160V 600mA 625mW, TO-92"
+		(property "Description" "PNP General Purpose 150V 600mA 625mW, TO-92"
 			(at 0 0 0)
 			(effects
 				(font
@@ -582,7 +582,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\BJT_PNP.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}/spice/BJT_PNP.lib"
 			(at 0 0 0)
 			(effects
 				(font
@@ -820,7 +820,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\BJT_NPN.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}/spice/BJT_NPN.lib"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1082,7 +1082,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\BJT_NPN.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}/spice/BJT_NPN.lib"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1344,7 +1344,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "${KICAD_RAYSLIB}\\spice\\BJT_PNP.lib"
+		(property "Sim.Library" "${KICAD_RAYSLIB}/spice/BJT_PNP.lib"
 			(at 0 0 0)
 			(effects
 				(font

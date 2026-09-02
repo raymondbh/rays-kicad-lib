@@ -1,3 +1,7 @@
+* Diode model library for KiCad/ngspice
+* 1N5817, 1N5818, 1N5819 and PDZ12B are historical imported models.
+* Their exact upstream source is not recorded and must be established before
+* public redistribution. They are retained for planned matching symbols.
 .MODEL 1N5817 D( IS=870u RS=81.3m BV=20.0 IBV=1.00m CJO=203p  M=0.333 N=1.81 TT=4.32u )
 .MODEL 1N5818 D( IS=263u RS=73.1m BV=30.0 IBV=1.00m CJO=203p  M=0.333 N=1.90 TT=4.32u )
 .MODEL 1N5819 D( IS=390n RS=0.115 BV=40.0 IBV=1.00m CJO=203p  M=0.333 N=1.70 TT=4.32u )
@@ -68,27 +72,27 @@ DLED A K LED_WHITE_D
 * Device:	Zener Diode BZX 55C 2V7
 * Type:	Typical (nom)
 * Remarks:	Macro model
-* Revision:	
+* Revision:
 * Simulator:	PSPICE
 
 .SUBCKT BZX55C2V7 a c
 
- DF a c DFOR
- DR c a DREV
- DB b a DBRE
+ DF a c BZX55C2V7_DFOR
+ DR c a BZX55C2V7_DREV
+ DB b a BZX55C2V7_DBRE
  BEB c b V=0.95447845+V(d)
  IB 0 d 1m
  RB 0 d 1k TC=-0.1m
 
-.MODEL DFOR D
+.MODEL BZX55C2V7_DFOR D
  + IS =   12p  RS =    0  N  =  1.5  CJO= 300p
  + VJ = 500m  M  = 345m  FC = 700m  XTI=    3
  + EG =    1
 
-.MODEL DREV D
+.MODEL BZX55C2V7_DREV D
  + IS = 150f  N  =   10  XTI=    3  EG =1.186
 
-.MODEL DBRE D
+.MODEL BZX55C2V7_DBRE D
  + IS =  12f  RS =   10  N  =    1  XTI=    0
  + EG =1.186
 
@@ -102,35 +106,35 @@ DLED A K LED_WHITE_D
 * Vishay Intertechnology, Inc. *
 ********************************
 * BZX55C3V6
-* Technology:        DISCRETE DEVICE				
-* Device:            Zener Diode BZX 55C 3V6				
-* Type:              Typical (nom)				
-* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN				
-* Wafer:				
-* Remarks:           Macro model				
-* Revision:				
-* Simulator:         PSPICE				
+* Technology:        DISCRETE DEVICE
+* Device:            Zener Diode BZX 55C 3V6
+* Type:              Typical (nom)
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN
+* Wafer:
+* Remarks:           Macro model
+* Revision:
+* Simulator:         PSPICE
 
-.SUBCKT BZX55C3V6 a c				
+.SUBCKT BZX55C3V6 a c
 
- DF a c DFOR				
- DR c a DREV				
- DB b a DBRE				
+ DF a c BZX55C3V6_DFOR
+ DR c a BZX55C3V6_DREV
+ DB b a BZX55C3V6_DBRE
  BEB c b V=1.84979584+V(d)
- IB 0 d 1m				
- RB 0 d 1k TC=-0.1m				
+ IB 0 d 1m
+ RB 0 d 1k TC=-0.1m
 
-.MODEL DFOR D				
- + IS =   9p  RS =    0  N  =  1.5  CJO= 252p				
- + VJ = 500m  M  = 345m  FC = 700m  XTI=    3				
- + EG =    1				
+.MODEL BZX55C3V6_DFOR D
+ + IS =   9p  RS =    0  N  =  1.5  CJO= 252p
+ + VJ = 500m  M  = 345m  FC = 700m  XTI=    3
+ + EG =    1
 
-.MODEL DREV D				
- + IS = 100f  N  =   10  XTI=    3  EG =1.186				
+.MODEL BZX55C3V6_DREV D
+ + IS = 100f  N  =   10  XTI=    3  EG =1.186
 
-.MODEL DBRE D				
- + IS =  10f  RS =   10  N  =    1  XTI=    0				
- + EG =1.186				
+.MODEL BZX55C3V6_DBRE D
+ + IS =  10f  RS =   10  N  =    1  XTI=    0
+ + EG =1.186
 
 .ENDS BZX55C3V6
 
@@ -142,33 +146,33 @@ DLED A K LED_WHITE_D
 * Vishay Intertechnology, Inc. *
 ********************************
 * BZX55C5V1
-* Technology:        DISCRETE DEVICE			
-* Device:            Zener Diode BZX 55C 5V1			
-* Type:              Typical (nom)			
-* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN			
-* Wafer:			
-* Remarks:           Macro model			
-* Revision:			
-* Simulator:         PSPICE			
+* Technology:        DISCRETE DEVICE
+* Device:            Zener Diode BZX 55C 5V1
+* Type:              Typical (nom)
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN
+* Wafer:
+* Remarks:           Macro model
+* Revision:
+* Simulator:         PSPICE
 
-.SUBCKT BZX55C5V1 a c			
+.SUBCKT BZX55C5V1 a c
 
- DF a c DFOR			
- DR c a DREV			
- DB b a DBRE			
+ DF a c BZX55C5V1_DFOR
+ DR c a BZX55C5V1_DREV
+ DB b a BZX55C5V1_DBRE
  BEB c b V=3.37599406+V(d)
  IB 0 d 1m
  RB 0 d 1k TC=3m
 
-.MODEL DFOR D
+.MODEL BZX55C5V1_DFOR D
  + IS =   1p  RS =  3.5  N  =  1.4  CJO= 178p
  + VJ = 610m  M  = 335m  FC = 700m  XTI=    3
  + EG =1.186
 
-.MODEL DREV D
+.MODEL BZX55C5V1_DREV D
  + IS = 100f  N  =   30  XTI=    3  EG =1.186
 
-.MODEL DBRE D
+.MODEL BZX55C5V1_DBRE D
  + IS =  10f  RS =    6  N  =    1  XTI=    0
  + EG =1.186
 
@@ -182,35 +186,35 @@ DLED A K LED_WHITE_D
 * Vishay Intertechnology, Inc. *
 ********************************
 * BZX55C6V2
-* Technology:        DISCRETE DEVICE				
-* Device:            Zener Diode BZX 55C 6V2				
-* Type:              Typical (nom)				
-* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN				
-* Wafer:				
-* Remarks:           Macro model				
-* Revision:				
-* Simulator:         PSPICE				
+* Technology:        DISCRETE DEVICE
+* Device:            Zener Diode BZX 55C 6V2
+* Type:              Typical (nom)
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN
+* Wafer:
+* Remarks:           Macro model
+* Revision:
+* Simulator:         PSPICE
 
-.SUBCKT BZX55C6V2 a c				
+.SUBCKT BZX55C6V2 a c
 
- DF a c DFOR				
- DR c a DREV				
- DB b a DBRE				
+ DF a c BZX55C6V2_DFOR
+ DR c a BZX55C6V2_DREV
+ DB b a BZX55C6V2_DBRE
  BEB c b V=4.50826626+V(d)
- IB 0 d 1m				
- RB 0 d 1k TC=4m				
+ IB 0 d 1m
+ RB 0 d 1k TC=4m
 
-.MODEL DFOR D				
- + IS =  32p  RS =    0  N  =  1.6  CJO= 128p				
- + VJ = 685m  M  = 342m  FC = 700m  XTI=    3				
- + EG =1.186				
+.MODEL BZX55C6V2_DFOR D
+ + IS =  32p  RS =    0  N  =  1.6  CJO= 128p
+ + VJ = 685m  M  = 342m  FC = 700m  XTI=    3
+ + EG =1.186
 
-.MODEL DREV D				
- + IS = 100f  N  =   12  XTI=    3  EG =1.186				
+.MODEL BZX55C6V2_DREV D
+ + IS = 100f  N  =   12  XTI=    3  EG =1.186
 
-.MODEL DBRE D				
- + IS =  10f  N  =    1  XTI=    0  EG =1.186				
-				
+.MODEL BZX55C6V2_DBRE D
+ + IS =  10f  N  =    1  XTI=    0  EG =1.186
+
 .ENDS BZX55C6V2
 
 * Official source: https://www.vishay.com/docs/85281/bzx55c18.txt
@@ -221,36 +225,36 @@ DLED A K LED_WHITE_D
 * Vishay Intertechnology, Inc. *
 ********************************
 * BZX55C18
-* Technology:        DISCRETE DEVICE			
-* Device:            Zener Diode BZX 55C 18			
-* Type:              Typical (nom)			
-* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN			
-* Wafer:			
-* Remarks:           Macro model			
-* Revision:			
-* Simulator:         PSPICE			
+* Technology:        DISCRETE DEVICE
+* Device:            Zener Diode BZX 55C 18
+* Type:              Typical (nom)
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN
+* Wafer:
+* Remarks:           Macro model
+* Revision:
+* Simulator:         PSPICE
 
-.SUBCKT BZX55C18 a c			
+.SUBCKT BZX55C18 a c
 
- DF a c DFOR
- DR c a DREV
- DB b a DBRE
+ DF a c BZX55C18_DFOR
+ DR c a BZX55C18_DREV
+ DB b a BZX55C18_DBRE
  BEB c b V=16.24021130+V(d)
  IB 0 d 1m
  RB 0 d 1k TC=19m
 
-.MODEL DFOR D
+.MODEL BZX55C18_DFOR D
  + IS =  60p  RS = 500m  N  =  1.6  CJO=43.6p
  + VJ = 700m  M  = 420m  FC = 700m  XTI=    3
  + EG =1.186
 
-.MODEL DREV D
+.MODEL BZX55C18_DREV D
  + IS = 100f  N  =   34  XTI=    3  EG =1.186
 
-.MODEL DBRE D
- + IS =  10f  RS =   20  N  =    1  XTI=    0			
- + EG =1.186			
-			
+.MODEL BZX55C18_DBRE D
+ + IS =  10f  RS =   20  N  =    1  XTI=    0
+ + EG =1.186
+
 .ENDS BZX55C18
 
 * Official source: https://www.vishay.com/docs/85283/bzx55c30.txt
@@ -261,35 +265,35 @@ DLED A K LED_WHITE_D
 * Vishay Intertechnology, Inc. *
 ********************************
 * BZX55C30
-* Technology:        DISCRETE DEVICE				
-* Device:            Zener Diode BZX 55C 30				
-* Type:              Typical (nom)				
-* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN				
-* Wafer:				
-* Remarks:           Macro model				
-* Revision:				
-* Simulator:         PSPICE				
+* Technology:        DISCRETE DEVICE
+* Device:            Zener Diode BZX 55C 30
+* Type:              Typical (nom)
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN
+* Wafer:
+* Remarks:           Macro model
+* Revision:
+* Simulator:         PSPICE
 
-.SUBCKT BZX55C30 a c				
+.SUBCKT BZX55C30 a c
 
- DF a c DFOR				
- DR c a DREV				
- DB b a DBRE				
+ DF a c BZX55C30_DFOR
+ DR c a BZX55C30_DREV
+ DB b a BZX55C30_DBRE
  BEB c b V=28.24847730+V(d)
- IB 0 d 1m				
- RB 0 d 1k TC=27m				
+ IB 0 d 1m
+ RB 0 d 1k TC=27m
 
-.MODEL DFOR D				
- + IS =   1p  RS = 500m  N  =  1.4  CJO=  23p				
- + VJ = 520m  M  = 330m  FC = 700m  XTI=    3				
- + EG =1.186				
+.MODEL BZX55C30_DFOR D
+ + IS =   1p  RS = 500m  N  =  1.4  CJO=  23p
+ + VJ = 520m  M  = 330m  FC = 700m  XTI=    3
+ + EG =1.186
 
-.MODEL DREV D				
- + IS = 100f  N  =   55  XTI=    3  EG =1.186				
+.MODEL BZX55C30_DREV D
+ + IS = 100f  N  =   55  XTI=    3  EG =1.186
 
-.MODEL DBRE D				
- + IS =  10f  RS =   22  N  =    1  XTI=    0				
- + EG =1.186				
+.MODEL BZX55C30_DBRE D
+ + IS =  10f  RS =   22  N  =    1  XTI=    0
+ + EG =1.186
 
 .ENDS BZX55C30
 
@@ -301,33 +305,33 @@ DLED A K LED_WHITE_D
 * Vishay Intertechnology, Inc. *
 ********************************
 * BZX55C68
-* Technology:        DISCRETE DEVICE			
-* Device:            Zener Diode BZX 55C 68			
-* Type:              Typical (nom)			
-* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN			
-* Wafer:			
-* Remarks:           Macro model			
-* Revision:			
-* Simulator:         PSPICE			
+* Technology:        DISCRETE DEVICE
+* Device:            Zener Diode BZX 55C 68
+* Type:              Typical (nom)
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN
+* Wafer:
+* Remarks:           Macro model
+* Revision:
+* Simulator:         PSPICE
 
 .SUBCKT BZX55C68 a c
 
- DF a c DFOR
- DR c a DREV
- DB b a DBRE
+ DF a c BZX55C68_DFOR
+ DR c a BZX55C68_DREV
+ DB b a BZX55C68_DBRE
  BEB c b V=66.07781230+V(d)
  IB 0 d 1m
  RB 0 d 1k TC=80m
 
-.MODEL DFOR D
+.MODEL BZX55C68_DFOR D
  + IS =  40p  RS = 500m  N  =  1.6  CJO=6.83p
  + VJ = 615m  M  = 340m  FC = 700m  XTI=    3
  + EG =1.186
 
-.MODEL DREV D
+.MODEL BZX55C68_DREV D
  + IS = 100f  N  =  200  XTI=    3  EG =1.186
 
-.MODEL DBRE D
+.MODEL BZX55C68_DBRE D
  + IS =  10f  RS =  160  N  =    1  XTI=    0
  + EG =1.186
 
