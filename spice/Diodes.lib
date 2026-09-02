@@ -1,3 +1,8 @@
+.MODEL 1N5817 D( IS=870u RS=81.3m BV=20.0 IBV=1.00m CJO=203p  M=0.333 N=1.81 TT=4.32u )
+.MODEL 1N5818 D( IS=263u RS=73.1m BV=30.0 IBV=1.00m CJO=203p  M=0.333 N=1.90 TT=4.32u )
+.MODEL 1N5819 D( IS=390n RS=0.115 BV=40.0 IBV=1.00m CJO=203p  M=0.333 N=1.70 TT=4.32u )
+.MODEL PDZ12B D( IS = 1.429E-014 N = 1.101 BV = 11.99 IBV = 0.005 RS = 0.3705 CJO = 4.928E-11 VJ = 0.575 M = 0.3292 )
+
 * Generic indicator LED models for KiCad/ngspice
 * Pin order for every subcircuit: A K
 * Nominal calibration temperature: 25 C
@@ -327,3 +332,78 @@ DLED A K LED_WHITE_D
  + EG =1.186
 
 .ENDS BZX55C68
+
+* Generic 1N400x rectifier models for KiCad/ngspice
+* Pin order for every subcircuit: A K
+* Forward characteristic is common to the family; BV follows the rated VRRM.
+* Typical model for circuit simulation; avalanche operation is not characterized.
+
+* 1N4001: 1 A rectifier, 50 V repetitive peak reverse voltage
+.subckt 1N4001 A K
+DRECT A K D_1N4001
+.model D_1N4001 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=50 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4001
+
+* 1N4002: 1 A rectifier, 100 V repetitive peak reverse voltage
+.subckt 1N4002 A K
+DRECT A K D_1N4002
+.model D_1N4002 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=100 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4002
+
+* 1N4003: 1 A rectifier, 200 V repetitive peak reverse voltage
+.subckt 1N4003 A K
+DRECT A K D_1N4003
+.model D_1N4003 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=200 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4003
+
+* 1N4004: 1 A rectifier, 400 V repetitive peak reverse voltage
+.subckt 1N4004 A K
+DRECT A K D_1N4004
+.model D_1N4004 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=400 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4004
+
+* 1N4005: 1 A rectifier, 600 V repetitive peak reverse voltage
+.subckt 1N4005 A K
+DRECT A K D_1N4005
+.model D_1N4005 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=600 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4005
+
+* 1N4006: 1 A rectifier, 800 V repetitive peak reverse voltage
+.subckt 1N4006 A K
+DRECT A K D_1N4006
+.model D_1N4006 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=800 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4006
+
+* 1N4007: 1 A rectifier, 1000 V repetitive peak reverse voltage
+.subckt 1N4007 A K
+DRECT A K D_1N4007
+.model D_1N4007 D (
++ IS=7.02767n RS=34.1512m N=1.80803
++ BV=1000 IBV=5u CJO=20p VJ=0.7 M=0.5
++ TT=2.23u EG=1.05743 XTI=5 FC=0.5 TNOM=25
++ )
+.ends 1N4007
