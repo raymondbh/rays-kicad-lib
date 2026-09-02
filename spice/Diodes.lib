@@ -1,0 +1,329 @@
+* Generic indicator LED models for KiCad/ngspice
+* Pin order for every subcircuit: A K
+* Nominal calibration temperature: 25 C
+*
+* These are generic electrical models, not manufacturer-specific models.
+* Light output, luminous intensity and wavelength are not modeled.
+
+* Red indicator LED: Vf = 2.0 V at If = 20 mA
+.subckt LED_RED A K
+DLED A K LED_RED_D
+.model LED_RED_D D (
++ IS=5.62097e-18 N=2 RS=8
++ BV=5 IBV=10u CJO=30p VJ=0.75 M=0.33 TT=50n
++ EG=1.8 XTI=3 TNOM=25
++ )
+.ends LED_RED
+
+* Traditional green indicator LED: Vf = 2.2 V at If = 20 mA
+.subckt LED_GREEN A K
+DLED A K LED_GREEN_D
+.model LED_GREEN_D D (
++ IS=2.49765e-19 N=2 RS=10
++ BV=5 IBV=10u CJO=25p VJ=0.75 M=0.33 TT=50n
++ EG=2.2 XTI=3 TNOM=25
++ )
+.ends LED_GREEN
+
+* Blue indicator LED: Vf = 3.1 V at If = 20 mA
+.subckt LED_BLUE A K
+DLED A K LED_BLUE_D
+.model LED_BLUE_D D (
++ IS=9.19237e-22 N=2.5 RS=12
++ BV=5 IBV=10u CJO=20p VJ=0.75 M=0.33 TT=50n
++ EG=2.8 XTI=3 TNOM=25
++ )
+.ends LED_BLUE
+
+* White indicator LED: Vf = 3.2 V at If = 20 mA
+.subckt LED_WHITE A K
+DLED A K LED_WHITE_D
+.model LED_WHITE_D D (
++ IS=1.93770e-22 N=2.5 RS=12
++ BV=5 IBV=10u CJO=20p VJ=0.75 M=0.33 TT=50n
++ EG=2.8 XTI=3 TNOM=25
++ )
+.ends LED_WHITE
+
+* Vishay BZX55C calibrated-model library for KiCad/ngspice
+* Pin order for every subcircuit: A K
+* Generated only from the official Vishay model files listed below.
+* The model topology and curve shape are retained from Vishay.
+* Each BEB offset is shifted so terminal Vz equals the data-sheet nominal
+* voltage at Izt and 25 C. All other electrical parameters are unchanged.
+
+* Official source: https://www.vishay.com/docs/85282/bzx55c2v7.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* Technology:	DISCRETE DEVICE
+* Device:	Zener Diode BZX 55C 2V7
+* Type:	Typical (nom)
+* Remarks:	Macro model
+* Revision:	
+* Simulator:	PSPICE
+
+.SUBCKT BZX55C2V7 a c
+
+ DF a c DFOR
+ DR c a DREV
+ DB b a DBRE
+ BEB c b V=0.95447845+V(d)
+ IB 0 d 1m
+ RB 0 d 1k TC=-0.1m
+
+.MODEL DFOR D
+ + IS =   12p  RS =    0  N  =  1.5  CJO= 300p
+ + VJ = 500m  M  = 345m  FC = 700m  XTI=    3
+ + EG =    1
+
+.MODEL DREV D
+ + IS = 150f  N  =   10  XTI=    3  EG =1.186
+
+.MODEL DBRE D
+ + IS =  12f  RS =   10  N  =    1  XTI=    0
+ + EG =1.186
+
+.ENDS BZX55C2V7
+
+* Official source: https://www.vishay.com/docs/85284/bzx55c3v6.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* BZX55C3V6
+* Technology:        DISCRETE DEVICE				
+* Device:            Zener Diode BZX 55C 3V6				
+* Type:              Typical (nom)				
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN				
+* Wafer:				
+* Remarks:           Macro model				
+* Revision:				
+* Simulator:         PSPICE				
+
+.SUBCKT BZX55C3V6 a c				
+
+ DF a c DFOR				
+ DR c a DREV				
+ DB b a DBRE				
+ BEB c b V=1.84979584+V(d)
+ IB 0 d 1m				
+ RB 0 d 1k TC=-0.1m				
+
+.MODEL DFOR D				
+ + IS =   9p  RS =    0  N  =  1.5  CJO= 252p				
+ + VJ = 500m  M  = 345m  FC = 700m  XTI=    3				
+ + EG =    1				
+
+.MODEL DREV D				
+ + IS = 100f  N  =   10  XTI=    3  EG =1.186				
+
+.MODEL DBRE D				
+ + IS =  10f  RS =   10  N  =    1  XTI=    0				
+ + EG =1.186				
+
+.ENDS BZX55C3V6
+
+* Official source: https://www.vishay.com/docs/85285/bzx55c5v1.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* BZX55C5V1
+* Technology:        DISCRETE DEVICE			
+* Device:            Zener Diode BZX 55C 5V1			
+* Type:              Typical (nom)			
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN			
+* Wafer:			
+* Remarks:           Macro model			
+* Revision:			
+* Simulator:         PSPICE			
+
+.SUBCKT BZX55C5V1 a c			
+
+ DF a c DFOR			
+ DR c a DREV			
+ DB b a DBRE			
+ BEB c b V=3.37599406+V(d)
+ IB 0 d 1m
+ RB 0 d 1k TC=3m
+
+.MODEL DFOR D
+ + IS =   1p  RS =  3.5  N  =  1.4  CJO= 178p
+ + VJ = 610m  M  = 335m  FC = 700m  XTI=    3
+ + EG =1.186
+
+.MODEL DREV D
+ + IS = 100f  N  =   30  XTI=    3  EG =1.186
+
+.MODEL DBRE D
+ + IS =  10f  RS =    6  N  =    1  XTI=    0
+ + EG =1.186
+
+.ENDS BZX55C5V1
+
+* Official source: https://www.vishay.com/docs/85287/bzx55c6v2.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* BZX55C6V2
+* Technology:        DISCRETE DEVICE				
+* Device:            Zener Diode BZX 55C 6V2				
+* Type:              Typical (nom)				
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN				
+* Wafer:				
+* Remarks:           Macro model				
+* Revision:				
+* Simulator:         PSPICE				
+
+.SUBCKT BZX55C6V2 a c				
+
+ DF a c DFOR				
+ DR c a DREV				
+ DB b a DBRE				
+ BEB c b V=4.50826626+V(d)
+ IB 0 d 1m				
+ RB 0 d 1k TC=4m				
+
+.MODEL DFOR D				
+ + IS =  32p  RS =    0  N  =  1.6  CJO= 128p				
+ + VJ = 685m  M  = 342m  FC = 700m  XTI=    3				
+ + EG =1.186				
+
+.MODEL DREV D				
+ + IS = 100f  N  =   12  XTI=    3  EG =1.186				
+
+.MODEL DBRE D				
+ + IS =  10f  N  =    1  XTI=    0  EG =1.186				
+				
+.ENDS BZX55C6V2
+
+* Official source: https://www.vishay.com/docs/85281/bzx55c18.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* BZX55C18
+* Technology:        DISCRETE DEVICE			
+* Device:            Zener Diode BZX 55C 18			
+* Type:              Typical (nom)			
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN			
+* Wafer:			
+* Remarks:           Macro model			
+* Revision:			
+* Simulator:         PSPICE			
+
+.SUBCKT BZX55C18 a c			
+
+ DF a c DFOR
+ DR c a DREV
+ DB b a DBRE
+ BEB c b V=16.24021130+V(d)
+ IB 0 d 1m
+ RB 0 d 1k TC=19m
+
+.MODEL DFOR D
+ + IS =  60p  RS = 500m  N  =  1.6  CJO=43.6p
+ + VJ = 700m  M  = 420m  FC = 700m  XTI=    3
+ + EG =1.186
+
+.MODEL DREV D
+ + IS = 100f  N  =   34  XTI=    3  EG =1.186
+
+.MODEL DBRE D
+ + IS =  10f  RS =   20  N  =    1  XTI=    0			
+ + EG =1.186			
+			
+.ENDS BZX55C18
+
+* Official source: https://www.vishay.com/docs/85283/bzx55c30.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* BZX55C30
+* Technology:        DISCRETE DEVICE				
+* Device:            Zener Diode BZX 55C 30				
+* Type:              Typical (nom)				
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN				
+* Wafer:				
+* Remarks:           Macro model				
+* Revision:				
+* Simulator:         PSPICE				
+
+.SUBCKT BZX55C30 a c				
+
+ DF a c DFOR				
+ DR c a DREV				
+ DB b a DBRE				
+ BEB c b V=28.24847730+V(d)
+ IB 0 d 1m				
+ RB 0 d 1k TC=27m				
+
+.MODEL DFOR D				
+ + IS =   1p  RS = 500m  N  =  1.4  CJO=  23p				
+ + VJ = 520m  M  = 330m  FC = 700m  XTI=    3				
+ + EG =1.186				
+
+.MODEL DREV D				
+ + IS = 100f  N  =   55  XTI=    3  EG =1.186				
+
+.MODEL DBRE D				
+ + IS =  10f  RS =   22  N  =    1  XTI=    0				
+ + EG =1.186				
+
+.ENDS BZX55C30
+
+* Official source: https://www.vishay.com/docs/85286/bzx55c68.txt
+* ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
+* subcircuit renamed to the full Vishay part number; BEB offset calibrated at Izt.
+********************************
+* Copyright:                   *
+* Vishay Intertechnology, Inc. *
+********************************
+* BZX55C68
+* Technology:        DISCRETE DEVICE			
+* Device:            Zener Diode BZX 55C 68			
+* Type:              Typical (nom)			
+* Model established: 12.11.1996, by S.Reuter, TM1iC63-HN			
+* Wafer:			
+* Remarks:           Macro model			
+* Revision:			
+* Simulator:         PSPICE			
+
+.SUBCKT BZX55C68 a c
+
+ DF a c DFOR
+ DR c a DREV
+ DB b a DBRE
+ BEB c b V=66.07781230+V(d)
+ IB 0 d 1m
+ RB 0 d 1k TC=80m
+
+.MODEL DFOR D
+ + IS =  40p  RS = 500m  N  =  1.6  CJO=6.83p
+ + VJ = 615m  M  = 340m  FC = 700m  XTI=    3
+ + EG =1.186
+
+.MODEL DREV D
+ + IS = 100f  N  =  200  XTI=    3  EG =1.186
+
+.MODEL DBRE D
+ + IS =  10f  RS =  160  N  =    1  XTI=    0
+ + EG =1.186
+
+.ENDS BZX55C68
