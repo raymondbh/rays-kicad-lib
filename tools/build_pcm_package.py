@@ -19,6 +19,7 @@ RELEASE_BASE_URL = "https://github.com/raymondbh/rays-kicad-lib/releases/downloa
 SYMBOL_FILES = (
     "rayslib-bjt-smd.kicad_sym",
     "rayslib-bjt-tht.kicad_sym",
+    "rayslib-diode-smd.kicad_sym",
     "rayslib-diode-tht.kicad_sym",
     "rayslib-passive-tht.kicad_sym",
 )
@@ -86,7 +87,8 @@ def main() -> int:
             install_size = sum(info.file_size for info in archive.infolist())
         published_metadata = json.loads(json.dumps(metadata))
         published_metadata.pop("$schema", None)
-        published_metadata["versions"][0].update(
+        current_version = published_metadata["versions"][0]
+        current_version.update(
             {
                 "download_url": f"{RELEASE_BASE_URL}/v{version}/{output.name}",
                 "download_sha256": digest,
@@ -94,12 +96,21 @@ def main() -> int:
                 "install_size": install_size,
             }
         )
-        packages = {"packages": [published_metadata]}
         existing_packages = None
         if (ROOT / "packages.json").is_file():
             existing_packages = json.loads(
                 (ROOT / "packages.json").read_text(encoding="utf-8")
             )
+        previous_versions = []
+        if existing_packages:
+            for package in existing_packages.get("packages", []):
+                if package.get("identifier") == IDENTIFIER:
+                    previous_versions = package.get("versions", [])
+                    break
+        published_metadata["versions"] = [current_version] + [
+            item for item in previous_versions if item.get("version") != version
+        ]
+        packages = {"packages": [published_metadata]}
         (ROOT / "packages.json").write_text(
             json.dumps(packages, indent=2) + "\n", encoding="utf-8"
         )

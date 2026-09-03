@@ -1,14 +1,14 @@
 # SPICE model sources
 
 This document records the provenance and intended use of every public model in
-the distributed SPICE libraries. Model names marked as planned are retained for
-symbols that will be added later.
+the distributed SPICE libraries. Every public model is used by a distributed
+symbol and exercised by the ngspice smoke test.
 
 ## `spice/BJT_NPN.lib`
 
 | Model | Status | Provenance |
 |---|---|---|
-| `BD139` | Planned symbol | Historical imported model; exact source not recorded |
+| `BD139` | Used | Historical imported model; exact source not recorded |
 | `BD175` | Used | Historical imported model; exact source not recorded |
 | `2N3904` | Used | Historical Philips-tagged model; exact source not recorded |
 | `2N5551` | Used | Historical NSC-tagged model; exact source not recorded |
@@ -20,7 +20,7 @@ symbols that will be added later.
 
 | Model | Status | Provenance |
 |---|---|---|
-| `BD140` | Planned symbol | Historical imported model; exact source not recorded |
+| `BD140` | Used | Historical imported model; exact source not recorded |
 | `BD176` | Used | Historical imported model; exact source not recorded |
 | `2N3906` | Used | Historical Philips-tagged model; exact source not recorded |
 | `2N5401` | Used | Historical Fairchild-tagged model; exact source not recorded |
@@ -32,8 +32,8 @@ symbols that will be added later.
 
 | Model | Status | Provenance |
 |---|---|---|
-| `1N5817`, `1N5818`, `1N5819` | Planned symbols | Historical imported models; exact source not recorded |
-| `PDZ12B` | Planned symbol | Historical imported model; exact source not recorded |
+| `1N5817`, `1N5818`, `1N5819` | Used | Historical imported models; exact source not recorded |
+| `PDZ12B` | Used | Historical imported model; exact source not recorded |
 | `LED_RED`, `LED_GREEN`, `LED_BLUE`, `LED_WHITE` | Used | Generic models calibrated to the documented forward voltage at 20 mA |
 | `BZX55C2V7`, `BZX55C3V6`, `BZX55C5V1`, `BZX55C6V2`, `BZX55C18`, `BZX55C30`, `BZX55C68` | Used | Converted and calibrated from the Vishay PSpice files identified in the library comments |
 | `1N4001` through `1N4007` | Used | Generic family models with rated reverse-voltage parameters |

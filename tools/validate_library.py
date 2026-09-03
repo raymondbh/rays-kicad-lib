@@ -13,8 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SYMBOL_DIR = ROOT / "symbol"
 SPICE_DIR = ROOT / "spice"
 
-EXPECTED_SYMBOLS = 31
-PLANNED_MODELS = {"BD139", "BD140", "1N5817", "1N5818", "1N5819", "PDZ12B"}
+EXPECTED_SYMBOLS = 37
 PROPERTY_RE = re.compile(r'\(property "([^"]+)" "([^"]*)"')
 TOP_SYMBOL_RE = re.compile(r'^\t\(symbol "([^"]+)"')
 PIN_NUMBER_RE = re.compile(r'^\s*\(number "([^"]+)"')
@@ -121,8 +120,8 @@ def main() -> int:
             fail(errors, f"{path.name}:{name} maps pins {sorted(mapped_pins)}, symbol has {sorted(pins)}")
 
     unused = set(definitions) - used_models
-    if unused != PLANNED_MODELS:
-        fail(errors, f"Unexpected unused models: {sorted(unused)}; expected {sorted(PLANNED_MODELS)}")
+    if unused:
+        fail(errors, f"SPICE models without symbols: {sorted(unused)}")
 
     legacy_files = list((SPICE_DIR / "Model").glob("**/*"))
     if any(path.is_file() for path in legacy_files):
@@ -134,7 +133,6 @@ def main() -> int:
         return 1
 
     print(f"Validated {len(symbols)} symbols and {len(definitions)} public SPICE models.")
-    print("Planned models without symbols: " + ", ".join(sorted(PLANNED_MODELS)))
     return 0
 
 

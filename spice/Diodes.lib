@@ -1,7 +1,7 @@
 * Diode model library for KiCad/ngspice
 * 1N5817, 1N5818, 1N5819 and PDZ12B are historical imported models.
 * Their exact upstream source is not recorded and must be established before
-* public redistribution. They are retained for planned matching symbols.
+* public redistribution. Each model is used by a matching symbol.
 .MODEL 1N5817 D( IS=870u RS=81.3m BV=20.0 IBV=1.00m CJO=203p  M=0.333 N=1.81 TT=4.32u )
 .MODEL 1N5818 D( IS=263u RS=73.1m BV=30.0 IBV=1.00m CJO=203p  M=0.333 N=1.90 TT=4.32u )
 .MODEL 1N5819 D( IS=390n RS=0.115 BV=40.0 IBV=1.00m CJO=203p  M=0.333 N=1.70 TT=4.32u )
