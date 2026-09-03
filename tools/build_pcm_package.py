@@ -30,6 +30,7 @@ ZIP_TIMESTAMP = (2024, 1, 1, 0, 0, 0)
 
 def zip_write(archive: zipfile.ZipFile, name: str, data: bytes) -> None:
     info = zipfile.ZipInfo(name, ZIP_TIMESTAMP)
+    info.create_system = 3  # Use Unix ZIP metadata on every build platform.
     info.compress_type = zipfile.ZIP_DEFLATED
     info.external_attr = 0o644 << 16
     archive.writestr(info, data)
