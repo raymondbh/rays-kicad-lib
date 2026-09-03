@@ -35,6 +35,11 @@ def zip_write(archive: zipfile.ZipFile, name: str, data: bytes) -> None:
     archive.writestr(info, data)
 
 
+def read_text_lf(path: Path) -> str:
+    """Read UTF-8 text with deterministic LF line endings."""
+    return path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--version", default=None, help="Override the metadata version")
@@ -56,7 +61,7 @@ def main() -> int:
     with zipfile.ZipFile(output, "w") as archive:
         zip_write(archive, "metadata.json", (json.dumps(metadata, indent=2) + "\n").encode())
         for filename in SYMBOL_FILES:
-            source = (ROOT / "symbol" / filename).read_text(encoding="utf-8")
+            source = read_text_lf(ROOT / "symbol" / filename)
             packaged = source.replace(SOURCE_PREFIX, PCM_PREFIX)
             if SOURCE_PREFIX in packaged or "${KICAD_RAYSLIB}" in packaged:
                 raise RuntimeError(f"Unconverted source path in {filename}")
@@ -64,9 +69,10 @@ def main() -> int:
                 raise RuntimeError(f"No packaged model path found in {filename}")
             zip_write(archive, f"symbols/{filename}", packaged.encode())
         for filename in SPICE_FILES:
-            zip_write(archive, f"symbols/spice/{filename}", (ROOT / "spice" / filename).read_bytes())
+            data = read_text_lf(ROOT / "spice" / filename).encode()
+            zip_write(archive, f"symbols/spice/{filename}", data)
         for filename in ("README.md", "MODEL_SOURCES.md", "LICENSE"):
-            zip_write(archive, f"resources/{filename}", (ROOT / filename).read_bytes())
+            zip_write(archive, f"resources/{filename}", read_text_lf(ROOT / filename).encode())
 
     with zipfile.ZipFile(output) as archive:
         if archive.testzip() is not None:
