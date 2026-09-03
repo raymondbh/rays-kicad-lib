@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -23,10 +23,20 @@ jobs:
         run: python tools/validate_library.py
 
       - name: Run ngspice smoke test
-        run: ngspice -b -o ngspice.log tests/smoke/all_models.cir
+        run: |
+          if ! ngspice -b -o ngspice.log tests/smoke/all_models.cir; then
+            cat ngspice.log
+            exit 1
+          fi
+          cat ngspice.log
 
       - name: Build PCM package
         run: python tools/build_pcm_package.py
 
+      - name: Verify committed repository indexes
+        run: |
+          python tools/build_pcm_package.py --update-repository-index
+          git diff --exit-code -- repository.json packages.json
+
       - name: List package contents
-        run: python -m zipfile --list dist/rays-kicad-lib-1.0.0-pcm.zip
+        run: python -m zipfile --list dist/*.zip

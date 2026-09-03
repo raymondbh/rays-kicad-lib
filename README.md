@@ -81,13 +81,28 @@ python tools/build_pcm_package.py --version 1.0.0
 Release tags matching `v*` run validation, execute the ngspice smoke test,
 build the archive, and attach it to a GitHub Release.
 
-## Custom PCM repository
+## Add the PCM repository directly
 
-KiCad can use a project-hosted PCM repository by adding the URL under the PCM
-repository settings. A repository requires a static repository index and
-package index in addition to release ZIP files. The initial distribution uses
-GitHub Releases and **Install from File**; repository-index publication can be
-added later, for example with GitHub Pages.
+After version 1.0.0 has been released, add this URL under the repository
+settings in KiCad's Plugin and Content Manager:
+
+```text
+https://raw.githubusercontent.com/raymondbh/rays-kicad-lib/main/repository.json
+```
+
+Refresh the repository list, select **Ray's SPICE-ready KiCad Library**, and
+install the desired version. GitHub hosts the repository indexes as raw files
+from `main`, while package archives are downloaded from GitHub Releases.
+
+For each new release, regenerate the repository indexes before committing and
+tagging:
+
+```text
+python tools/build_pcm_package.py --version 1.0.0 --update-repository-index
+```
+
+The package can still be downloaded from GitHub Releases and installed with
+**Install from File...** without adding the repository URL.
 
 ## License
 

@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -27,11 +27,18 @@ jobs:
         run: python tools/validate_library.py
 
       - name: Run ngspice smoke test
-        run: ngspice -b -o ngspice.log tests/smoke/all_models.cir
+        run: |
+          if ! ngspice -b -o ngspice.log tests/smoke/all_models.cir; then
+            cat ngspice.log
+            exit 1
+          fi
+          cat ngspice.log
 
-      - name: Build versioned package
+      - name: Build versioned package and verify repository indexes
         shell: bash
-        run: python tools/build_pcm_package.py --version "${GITHUB_REF_NAME#v}"
+        run: |
+          python tools/build_pcm_package.py --version "${GITHUB_REF_NAME#v}" --update-repository-index
+          git diff --exit-code -- repository.json packages.json
 
       - name: Create GitHub Release
         env:

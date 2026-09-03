@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import time
 import zipfile
 from pathlib import Path
 
@@ -12,6 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 IDENTIFIER = "com.github.raymondbh.rays-kicad-lib"
 INSTALLED_IDENTIFIER = IDENTIFIER.replace(".", "_")
+REPOSITORY_BASE_URL = "https://raw.githubusercontent.com/raymondbh/rays-kicad-lib/main"
+RELEASE_BASE_URL = "https://github.com/raymondbh/rays-kicad-lib/releases/download"
 SYMBOL_FILES = (
     "rayslib-bjt-smd.kicad_sym",
     "rayslib-bjt-tht.kicad_sym",
@@ -35,6 +39,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--version", default=None, help="Override the metadata version")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "dist")
+    parser.add_argument(
+        "--update-repository-index",
+        action="store_true",
+        help="Update repository.json and packages.json for this release",
+    )
     args = parser.parse_args()
 
     metadata = json.loads((ROOT / "pcm" / "metadata.json").read_text(encoding="utf-8"))
@@ -63,6 +72,57 @@ def main() -> int:
         if archive.testzip() is not None:
             raise RuntimeError("The generated ZIP archive failed its integrity check")
         json.loads(archive.read("metadata.json"))
+
+    if args.update_repository_index:
+        digest = hashlib.sha256(output.read_bytes()).hexdigest()
+        with zipfile.ZipFile(output) as archive:
+            install_size = sum(info.file_size for info in archive.infolist())
+        published_metadata = json.loads(json.dumps(metadata))
+        published_metadata.pop("$schema", None)
+        published_metadata["versions"][0].update(
+            {
+                "download_url": f"{RELEASE_BASE_URL}/v{version}/{output.name}",
+                "download_sha256": digest,
+                "download_size": output.stat().st_size,
+                "install_size": install_size,
+            }
+        )
+        packages = {"packages": [published_metadata]}
+        existing_packages = None
+        if (ROOT / "packages.json").is_file():
+            existing_packages = json.loads(
+                (ROOT / "packages.json").read_text(encoding="utf-8")
+            )
+        (ROOT / "packages.json").write_text(
+            json.dumps(packages, indent=2) + "\n", encoding="utf-8"
+        )
+        existing_repository = None
+        if (ROOT / "repository.json").is_file():
+            existing_repository = json.loads(
+                (ROOT / "repository.json").read_text(encoding="utf-8")
+            )
+        if existing_packages == packages and existing_repository:
+            timestamp = existing_repository["packages"]["update_timestamp"]
+        else:
+            timestamp = int(time.time())
+        repository = {
+            "$schema": "https://go.kicad.org/pcm/schemas/v1#/definitions/Repository",
+            "name": "Ray's KiCad Library",
+            "maintainer": {
+                "name": "Raymond Berg Hansen",
+                "contact": {"web": "https://github.com/raymondbh/rays-kicad-lib"},
+            },
+            "packages": {
+                "url": f"{REPOSITORY_BASE_URL}/packages.json",
+                "update_timestamp": timestamp,
+                "update_time_utc": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(timestamp)),
+            },
+        }
+        (ROOT / "repository.json").write_text(
+            json.dumps(repository, indent=2) + "\n", encoding="utf-8"
+        )
+        print(ROOT / "repository.json")
+        print(ROOT / "packages.json")
 
     print(output)
     return 0
