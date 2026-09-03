@@ -1,0 +1,11 @@
+* text=auto
+.gitignore text eol=lf
+
+*.kicad_sym text eol=lf
+*.kicad_mod text eol=lf
+*.lib text eol=lf
+*.cir text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf

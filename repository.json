@@ -1,0 +1,15 @@
+{
+  "$schema": "https://go.kicad.org/pcm/schemas/v1#/definitions/Repository",
+  "name": "Ray's KiCad Library",
+  "maintainer": {
+    "name": "Raymond Berg Hansen",
+    "contact": {
+      "web": "https://github.com/raymondbh/rays-kicad-lib"
+    }
+  },
+  "packages": {
+    "url": "https://raw.githubusercontent.com/raymondbh/rays-kicad-lib/main/packages.json",
+    "update_timestamp": 1788412753,
+    "update_time_utc": "2026-09-03 05:19:13"
+  }
+}
