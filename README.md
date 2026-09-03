@@ -5,18 +5,38 @@ education. Every symbol distributed in the PCM package has a corresponding
 ngspice model, an explicit pin mapping, and a suitable footprint where
 applicable.
 
-## Included symbols
+## Library contents
 
-- NPN and PNP bipolar transistors in through-hole and SMD packages
-- BZX55C Zener diodes
-- Generic red, green, blue, and white LEDs
-- 1N4001 through 1N4007 rectifier diodes
-- A parameterized linear potentiometer
+The package contains a curated collection of symbols for schematic capture and
+SPICE-based teaching exercises. Only symbols with working bundled ngspice
+models are distributed. Each included symbol has an explicit simulation pin
+mapping and a suitable footprint where applicable.
 
-See [MODEL_SOURCES.md](MODEL_SOURCES.md) for model provenance, calibration
-notes, and models retained for planned symbols.
+See [MODEL_SOURCES.md](MODEL_SOURCES.md) for model provenance and calibration
+notes.
 
-## Install a GitHub Release package
+## Install with the PCM repository (recommended)
+
+1. Open KiCad 10 and start **Plugin and Content Manager**.
+2. Open the repository settings and add this URL:
+
+   ```text
+   https://raw.githubusercontent.com/raymondbh/rays-kicad-lib/main/repository.json
+   ```
+
+3. Refresh the repository list.
+4. Select **Ray's SPICE-ready KiCad Library** and install the desired version.
+5. Close and restart KiCad so the installed symbol libraries are loaded.
+
+GitHub hosts the repository indexes as raw files from `main`. Versioned package
+archives are downloaded from GitHub Releases.
+
+KiCad normally adds installed symbol libraries to the global library table.
+The nickname may have the configured PCM prefix, which is `PCM_` by default.
+The bundled models are installed below KiCad's `KICAD10_3RD_PARTY` directory;
+no custom SPICE path is required.
+
+## Install a downloaded GitHub Release package
 
 1. Download the file named `rays-kicad-lib-<version>-pcm.zip` from the GitHub
    release.
@@ -24,11 +44,7 @@ notes, and models retained for planned symbols.
 3. Open **Plugin and Content Manager**.
 4. Select **Install from File...** and choose the downloaded ZIP file.
 5. Apply the pending installation if KiCad asks for confirmation.
-
-KiCad normally adds installed symbol libraries to the global library table.
-The nickname may have the configured PCM prefix, which is `PCM_` by default.
-The bundled models are installed below KiCad's `KICAD10_3RD_PARTY` directory;
-no custom SPICE path is required.
+6. Close and restart KiCad so the installed symbol libraries are loaded.
 
 ## Install from a clone
 
@@ -36,8 +52,8 @@ no custom SPICE path is required.
 2. In KiCad, open **Preferences > Configure Paths**.
 3. Add `KICAD_RAYSLIB` and set it to the absolute repository path.
 4. Open **Preferences > Manage Symbol Libraries**.
-5. Add the four `.kicad_sym` files from the `symbol` directory as global or
-   project libraries.
+5. Add the `.kicad_sym` files from the `symbol` directory as global or project
+   libraries.
 
 The source symbols use paths such as:
 
@@ -45,64 +61,8 @@ The source symbols use paths such as:
 ${KICAD_RAYSLIB}/spice/Diodes.lib
 ```
 
-The package builder rewrites these paths to the PCM installation directory in
-the generated archive.
-
-## Validate
-
-Run the static symbol/model checks:
-
-```text
-python tools/validate_library.py
-```
-
-If `ngspice` is installed, run the operating-point smoke test from the
-repository root:
-
-```text
-ngspice -b tests/smoke/all_models.cir
-```
-
-The smoke test instantiates every public model, including models retained for
-planned symbols.
-
-## Build the PCM archive
-
-```text
-python tools/build_pcm_package.py
-```
-
-The archive is written to `dist/`. To build a release with a specific version:
-
-```text
-python tools/build_pcm_package.py --version 1.0.0
-```
-
-Release tags matching `v*` run validation, execute the ngspice smoke test,
-build the archive, and attach it to a GitHub Release.
-
-## Add the PCM repository directly
-
-After version 1.0.0 has been released, add this URL under the repository
-settings in KiCad's Plugin and Content Manager:
-
-```text
-https://raw.githubusercontent.com/raymondbh/rays-kicad-lib/main/repository.json
-```
-
-Refresh the repository list, select **Ray's SPICE-ready KiCad Library**, and
-install the desired version. GitHub hosts the repository indexes as raw files
-from `main`, while package archives are downloaded from GitHub Releases.
-
-For each new release, regenerate the repository indexes before committing and
-tagging:
-
-```text
-python tools/build_pcm_package.py --version 1.0.0 --update-repository-index
-```
-
-The package can still be downloaded from GitHub Releases and installed with
-**Install from File...** without adding the repository URL.
+PCM package validation, build, indexing, and release instructions are kept in
+[docs/PCM_PACKAGING.md](docs/PCM_PACKAGING.md).
 
 ## License
 
