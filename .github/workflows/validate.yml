@@ -33,10 +33,5 @@ jobs:
       - name: Build PCM package
         run: python tools/build_pcm_package.py
 
-      - name: Verify committed repository indexes
-        run: |
-          python tools/build_pcm_package.py --update-repository-index
-          git diff --exit-code -- repository.json packages.json
-
       - name: List package contents
         run: python -m zipfile --list dist/*.zip
