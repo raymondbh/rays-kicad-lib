@@ -24,11 +24,14 @@ jobs:
 
       - name: Run ngspice smoke test
         run: |
-          if ! ngspice -b -o ngspice.log tests/smoke/all_models.cir; then
-            cat ngspice.log
-            exit 1
-          fi
-          cat ngspice.log
+          for netlist in tests/smoke/all_models.cir tests/smoke/opamps.cir; do
+            log="$(basename "$netlist" .cir).log"
+            if ! ngspice -b -o "$log" "$netlist"; then
+              cat "$log"
+              exit 1
+            fi
+            cat "$log"
+          done
 
       - name: Build PCM package
         run: python tools/build_pcm_package.py

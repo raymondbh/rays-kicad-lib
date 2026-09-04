@@ -13,10 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SYMBOL_DIR = ROOT / "symbol"
 SPICE_DIR = ROOT / "spice"
 
-EXPECTED_SYMBOLS = 39
+EXPECTED_SYMBOLS = 42
 PROPERTY_RE = re.compile(r'\(property "([^"]+)" "([^"]*)"')
 TOP_SYMBOL_RE = re.compile(r'^\t\(symbol "([^"]+)"')
-PIN_NUMBER_RE = re.compile(r'^\s*\(number "([^"]+)"')
+PIN_NUMBER_RE = re.compile(r'^\s*\(number "([^"]+)"', re.MULTILINE)
 DEFINITION_RE = re.compile(r"^\s*\.(model|subckt)\s+(\S+)\s*(.*)$", re.IGNORECASE)
 
 
@@ -43,7 +43,7 @@ def public_definitions(path: Path) -> list[tuple[str, str, str]]:
         if match:
             kind, name, remainder = match.groups()
             kind = kind.upper()
-            if depth == 0:
+            if depth == 0 and not name.startswith("__"):
                 model_type = remainder.split("(", 1)[0].split()[0].upper() if kind == "MODEL" else ""
                 definitions.append((name, kind, model_type))
             if kind == "SUBCKT":

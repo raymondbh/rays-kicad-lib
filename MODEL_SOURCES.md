@@ -45,6 +45,19 @@ an ngspice-compatible behavioral source, and each breakdown offset was
 calibrated at the data-sheet test current. Original source URLs and attribution
 are retained beside each subcircuit.
 
+## `spice/OpAmps.lib`
+
+| Model | Status | Provenance |
+|---|---|---|
+| `UA741CP` | Used | Generic ngspice model calibrated to the official Texas Instruments UA741 data sheet |
+| `TL072CP` | Used | Converted from the official Texas Instruments TL072 PSpice model (`SLOJ067`) |
+| `LM358P` | Used | Generic ngspice model calibrated to the official Texas Instruments LM358 data sheet |
+
+The public models use physical PDIP-8 pin order. PSpice-only polynomial sources
+in the TL072 model were converted to ngspice-compatible behavioral sources, and
+its original manufacturer comments and attribution are retained. The UA741 and
+LM358 models are documented, ngspice-native educational macromodels.
+
 ## `spice/Passives.lib`
 
 | Model | Status | Provenance |

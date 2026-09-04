@@ -21,9 +21,10 @@ SYMBOL_FILES = (
     "rayslib-bjt-tht.kicad_sym",
     "rayslib-diode-smd.kicad_sym",
     "rayslib-diode-tht.kicad_sym",
+    "rayslib-opamp-tht.kicad_sym",
     "rayslib-passive-tht.kicad_sym",
 )
-SPICE_FILES = ("BJT_NPN.lib", "BJT_PNP.lib", "Diodes.lib", "Passives.lib")
+SPICE_FILES = ("BJT_NPN.lib", "BJT_PNP.lib", "Diodes.lib", "OpAmps.lib", "Passives.lib")
 SOURCE_PREFIX = "${KICAD_RAYSLIB}/spice/"
 PCM_PREFIX = f"${{KICAD10_3RD_PARTY}}/symbols/{INSTALLED_IDENTIFIER}/spice/"
 ZIP_TIMESTAMP = (2024, 1, 1, 0, 0, 0)
