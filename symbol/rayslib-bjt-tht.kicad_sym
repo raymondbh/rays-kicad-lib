@@ -1546,7 +1546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN medium-power transistor, 80 V, 1.5 A, 12.5 W, TO-126"
+		(property "Description" "NPN Medium Power 80V 1.5A 12.5 W, TO-126"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1808,7 +1808,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP medium-power transistor, 80 V, 1.5 A, 12.5 W, TO-126"
+		(property "Description" "PNP Medium Power 80V 1.5A 12.5 W, TO-126"
 			(at 0 0 0)
 			(effects
 				(font
