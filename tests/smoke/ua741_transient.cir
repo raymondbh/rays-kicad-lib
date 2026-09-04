@@ -11,4 +11,5 @@ R_LOAD OUT 0 10k
 * convergence consistently across ngspice versions used by CI and KiCad 10.
 .options method=gear itl4=100
 .tran 10u 2m
+.print tran v(OUT)
 .end
