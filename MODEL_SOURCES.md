@@ -34,6 +34,7 @@ symbol and exercised by the ngspice smoke test.
 |---|---|---|
 | `1N5817`, `1N5818`, `1N5819` | Used | Historical imported models; exact source not recorded |
 | `PDZ12B` | Used | Historical imported model; exact source not recorded |
+| `1N4148` | Used | Generic switching model calibrated to the official Vishay data sheet |
 | `1N4742A` | Used | Generic DC model calibrated to the official Vishay data sheet; no manufacturer SPICE model is bundled |
 | `LED_RED`, `LED_GREEN`, `LED_BLUE`, `LED_WHITE` | Used | Generic models calibrated to the documented forward voltage at 20 mA |
 | `BZX55C2V7`, `BZX55C3V6`, `BZX55C5V1`, `BZX55C6V2`, `BZX55C18`, `BZX55C30`, `BZX55C68` | Used | Converted and calibrated from the Vishay PSpice files identified in the library comments |

@@ -7,6 +7,21 @@
 .MODEL 1N5819 D( IS=390n RS=0.115 BV=40.0 IBV=1.00m CJO=203p  M=0.333 N=1.70 TT=4.32u )
 .MODEL PDZ12B D( IS = 1.429E-014 N = 1.101 BV = 11.99 IBV = 0.005 RS = 0.3705 CJO = 4.928E-11 VJ = 0.575 M = 0.3292 )
 
+* Datasheet source: https://www.vishay.com/docs/81857/1n4148.pdf
+* Generic ngspice model calibrated to the typical forward characteristic.
+* Rated limits represented by the model: 100 V repetitive peak reverse voltage
+* and 4 pF maximum junction capacitance. Reverse recovery is approximated by
+* transit time and is not guaranteed to match every manufacturer's process.
+* Pin order: A K
+.SUBCKT 1N4148 A K
+DFAST A K D_1N4148
+.MODEL D_1N4148 D (
++ IS=2.682n N=1.836 RS=0.5664 IKF=44.17m
++ CJO=4p VJ=0.5 M=0.3333 FC=0.5
++ BV=100 IBV=100u TT=4n EG=1.11 XTI=3 TNOM=25
++ )
+.ENDS 1N4148
+
 * Datasheet source: https://www.vishay.com/docs/85816/1n4728a.pdf
 * Generic, DC-oriented ngspice model; no manufacturer SPICE model is bundled.
 * Calibrated to Vz = 12.0 V at Izt = 21 mA and 25 C.
