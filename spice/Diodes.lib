@@ -56,10 +56,10 @@ DLED A K LED_WHITE_D
 
 * Vishay BZX55C calibrated-model library for KiCad/ngspice
 * Pin order for every subcircuit: A K
-* Generated only from the official Vishay model files listed below.
-* The model topology and curve shape are retained from Vishay.
-* Each BEB offset is shifted so terminal Vz equals the data-sheet nominal
-* voltage at Izt and 25 C. All other electrical parameters are unchanged.
+* Manufacturer-provided variants retain the Vishay topology and curve shape.
+* Their BEB offsets are shifted so terminal Vz equals the data-sheet nominal
+* voltage at Izt and 25 C. BZX55C10 is a documented generic model because
+* Vishay does not publish a SPICE model for that variant.
 
 * Official source: https://www.vishay.com/docs/85282/bzx55c2v7.txt
 * ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
@@ -216,6 +216,20 @@ DLED A K LED_WHITE_D
  + IS =  10f  N  =    1  XTI=    0  EG =1.186
 
 .ENDS BZX55C6V2
+
+* Datasheet source: https://www.vishay.com/docs/85604/bzx55.pdf
+* Generic, DC-oriented ngspice model; no manufacturer SPICE model is published.
+* Calibrated to Vz = 10.0 V at Izt = 5 mA and 25 C.
+* Simulated dynamic resistance around Izt is approximately 10.5 ohm, below the
+* data-sheet maximum of 15 ohm. CJO is a representative, non-guaranteed value.
+.SUBCKT BZX55C10 a c
+ DZEN a c BZX55C10_D
+.MODEL BZX55C10_D D (
+ + IS=10f N=1 RS=10
+ + BV=9.95 IBV=5m NBV=0.1
+ + CJO=50p VJ=0.7 M=0.33
+ + )
+.ENDS BZX55C10
 
 * Official source: https://www.vishay.com/docs/85281/bzx55c18.txt
 * ngspice conversion: PSpice POLY(1) source replaced by equivalent B source;
