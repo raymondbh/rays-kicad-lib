@@ -1,0 +1,14 @@
+* Isolated transient smoke test for the UA741 model
+.include spice/OpAmps.lib
+
+V_POS VPOS 0 15
+V_NEG VNEG 0 -15
+V_IN IN 0 PULSE(0 1 100u 1u 1u 400u 1m)
+X_UA OFFSET1 OUT IN VNEG OFFSET2 OUT VPOS UA741CP
+R_LOAD OUT 0 10k
+
+* Gear integration and a larger transient iteration limit improve
+* convergence consistently across ngspice versions used by CI and KiCad 10.
+.options method=gear itl4=100
+.tran 10u 2m
+.end

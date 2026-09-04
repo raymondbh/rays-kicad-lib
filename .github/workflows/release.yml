@@ -28,7 +28,7 @@ jobs:
 
       - name: Run ngspice smoke test
         run: |
-          for netlist in tests/smoke/all_models.cir tests/smoke/opamps.cir; do
+          for netlist in tests/smoke/all_models.cir tests/smoke/opamps.cir tests/smoke/ua741_transient.cir; do
             log="$(basename "$netlist" .cir).log"
             if ! ngspice -b -o "$log" "$netlist"; then
               cat "$log"

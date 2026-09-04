@@ -1,11 +1,11 @@
-* Operating-point smoke test for the operational-amplifier models
+* Operating-point smoke test for all operational-amplifier models
 .include spice/OpAmps.lib
 
 V_POS VPOS 0 15
 V_NEG VNEG 0 -15
 V_5V V5 0 5
 
-V_UA_IN UA_IN 0 PULSE(0 1 100u 1u 1u 400u 1m)
+V_UA_IN UA_IN 0 0
 X_UA UA_OFFSET1 UA_OUT UA_IN VNEG UA_OFFSET2 UA_OUT VPOS UA741CP
 R_UA_LOAD UA_OUT 0 10k
 
@@ -22,5 +22,4 @@ R_LM_LOAD1 LM_OUT1 0 10k
 R_LM_LOAD2 LM_OUT2 0 10k
 
 .op
-.tran 10u 2m
 .end

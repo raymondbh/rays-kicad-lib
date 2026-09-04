@@ -11,13 +11,17 @@ Run the static symbol and model checks from the repository root:
 python tools/validate_library.py
 ```
 
-If `ngspice` is installed, run the operating-point smoke test:
+If `ngspice` is installed, run the operating-point and transient smoke tests:
 
 ```text
 ngspice -b -o ngspice.log tests/smoke/all_models.cir
+ngspice -b -o opamps.log tests/smoke/opamps.cir
+ngspice -b -o ua741-transient.log tests/smoke/ua741_transient.cir
 ```
 
-The smoke test instantiates every public model.
+The operating-point tests instantiate every public model. The isolated UA741
+test also verifies transient convergence without coupling unrelated op-amp
+macromodels into the same transient analysis.
 
 ## Build the package
 
