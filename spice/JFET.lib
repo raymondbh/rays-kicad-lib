@@ -1,0 +1,31 @@
+* Generic educational N-channel JFET models, authored for this library.
+* These are representative devices, not manufacturer-supplied SPICE models.
+* Sources (electrical limits and physical pin assignments):
+* https://www.onsemi.com/download/data-sheet/pdf/2n3819-d.pdf
+* https://www.onsemi.com/download/data-sheet/pdf/mmbfj113-d.pdf
+* https://www.onsemi.com/download/data-sheet/pdf/j111-d.pdf
+*
+* Native SPICE terminal order: D G S (not physical TO-92 pin order).
+* onsemi 2N3819: 1=S, 2=G, 3=D; J111/J112/J113: 1=D, 2=S, 3=G.
+* 2N3819 from other manufacturers may have a different pin assignment.
+*
+* Nominal targets at 25 C:
+* Part     VTO       IDSS at VDS=15 V    Low-VDS channel resistance
+* 2N3819   -4 V      10.6 mA            about 200 ohm
+* J111     -6 V      112.9 mA           about 28 ohm
+* J112     -3 V      47.0 mA            about 33 ohm
+* J113     -1.5 V    14.1 mA            about 56 ohm
+* BETA selects IDSS and on-resistance together using the square-law model.
+* J111-J113 nominal points are chosen within the data-sheet limits; they
+* do not imply guaranteed typical values or represent production spread.
+* Capacitances are approximate; no RF/noise fit, gate breakdown, self-heating,
+* or statistical/temperature characterization is provided.
+
+.model 2N3819 NJF (VTO=-4 BETA=625u LAMBDA=0.004
++ RD=1 RS=1 IS=1p CGS=4p CGD=1.5p PB=1 TNOM=25)
+.model J111 NJF (VTO=-6 BETA=3m LAMBDA=0.003
++ RD=0.1 RS=0.1 IS=1p CGS=12p CGD=12p PB=1 TNOM=25)
+.model J112 NJF (VTO=-3 BETA=5m LAMBDA=0.003
++ RD=0.1 RS=0.1 IS=1p CGS=12p CGD=12p PB=1 TNOM=25)
+.model J113 NJF (VTO=-1.5 BETA=6m LAMBDA=0.003
++ RD=0.1 RS=0.1 IS=1p CGS=12p CGD=12p PB=1 TNOM=25)

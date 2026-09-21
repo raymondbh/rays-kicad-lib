@@ -1,0 +1,119 @@
+* Data-sheet envelope and switching checks for the educational FET models.
+.include spice/JFET.lib
+.include spice/MOSFET.lib
+.temp 25
+
+* IDSS at VDS=15 V, VGS=0.
+VD3819 D3819 0 15
+VD111 D111 0 15
+VD112 D112 0 15
+VD113 D113 0 15
+J3819 D3819 0 0 2N3819
+J111 D111 0 0 J111
+J112 D112 0 0 J112
+J113 D113 0 0 J113
+
+* Low-VDS on-resistance; then sweep gate voltage to measure cutoff at 1 uA.
+VG G 0 0
+VR111 R111 0 0.1
+VR112 R112 0 0.1
+VR113 R113 0 0.1
+JR111 R111 G 0 J111
+JR112 R112 G 0 J112
+JR113 R113 G 0 J113
+VC111 C111 0 5
+VC112 C112 0 5
+VC113 C113 0 5
+VC3819 C3819 0 15
+JC111 C111 G 0 J111
+JC112 C112 G 0 J112
+JC113 C113 G 0 J113
+JC3819 C3819 G 0 2N3819
+
+* 2N7000 threshold (gate tied to drain), on-resistance, off-state, body diode.
+ITH 0 TH 1m
+XTH TH TH 0 2N7000
+VG45 G45 0 4.5
+ION45 0 ON45 75m
+XON45 ON45 G45 0 2N7000
+VG10 G10 0 10
+ION10 0 ON10 500m
+XON10 ON10 G10 0 2N7000
+VOFF OFF 0 48
+XOFF OFF 0 0 2N7000
+IBODY BODY 0 10m
+XBODY BODY 0 0 2N7000
+
+* Resistively loaded switch, driven through a realistic gate resistor.
+VDD VDD 0 5
+VPULSE DRIVE 0 PULSE(0 5 10u 100n 100n 20u 40u)
+RG DRIVE MG 100
+RLOAD VDD OUT 1k
+XSW OUT MG 0 2N7000
+
+.control
+op
+if -i(VD3819) < 0.002 | -i(VD3819) > 0.020
+  echo FAIL: 2N3819 IDSS outside 2-20 mA
+  quit 1
+end
+if -i(VD111) < 0.020 | -i(VD112) < 0.005 | -i(VD113) < 0.002
+  echo FAIL: J111-J113 IDSS below data-sheet minimum
+  quit 1
+end
+if 0.1/(-i(VR111)) > 30 | 0.1/(-i(VR112)) > 50 | 0.1/(-i(VR113)) > 100
+  echo FAIL: J111-J113 on-resistance exceeds data-sheet maximum
+  quit 1
+end
+if v(TH) < 0.8 | v(TH) > 3
+  echo FAIL: 2N7000 threshold outside 0.8-3 V
+  quit 1
+end
+if v(ON45) <= 0 | v(ON45)/0.075 > 6 | v(ON10) <= 0 | v(ON10)/0.5 > 5
+  echo FAIL: 2N7000 on-resistance outside data-sheet envelope
+  quit 1
+end
+if abs(i(VOFF)) > 1u
+  echo FAIL: 2N7000 off-state leakage exceeds 1 uA
+  quit 1
+end
+if v(BODY) > -0.3 | v(BODY) < -1.2
+  echo FAIL: 2N7000 body diode polarity or forward drop
+  quit 1
+end
+print v(TH) v(ON45) v(ON10) v(BODY)
+dc VG 0 -12 -0.01
+let id111 = -i(VC111)
+let id112 = -i(VC112)
+let id113 = -i(VC113)
+let id3819 = -i(VC3819)
+* Sentinel values make a failed measurement fail the envelope checks too.
+let cut111 = 1
+let cut112 = 1
+let cut113 = 1
+let cut3819 = 1
+meas dc cut111 WHEN id111=1u FALL=1
+meas dc cut112 WHEN id112=1u FALL=1
+meas dc cut113 WHEN id113=1u FALL=1
+meas dc cut3819 WHEN id3819=10n FALL=1
+if cut111 < -10 | cut111 > -3 | cut112 < -5 | cut112 > -1
+  echo FAIL: J111/J112 cutoff outside data-sheet envelope
+  quit 1
+end
+if cut113 < -3 | cut113 > -0.5 | cut3819 < -8 | cut3819 >= 0
+  echo FAIL: J113/2N3819 cutoff outside data-sheet envelope
+  quit 1
+end
+tran 50n 80u
+let on_voltage = 999
+let off_voltage = 999
+meas tran on_voltage FIND v(OUT) AT=20u
+meas tran off_voltage FIND v(OUT) AT=40u
+if on_voltage < 0 | on_voltage > 0.1 | off_voltage < 4.9 | off_voltage > 5.1
+  echo FAIL: 2N7000 switch did not reach expected on/off levels
+  quit 1
+end
+echo PASS: FET DC envelopes, cutoff sweeps, body diode and transient switching
+quit 0
+.endc
+.end

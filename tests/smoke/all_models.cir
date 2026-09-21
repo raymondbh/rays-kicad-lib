@@ -3,6 +3,8 @@
 .include spice/BJT_PNP.lib
 .include spice/Diodes.lib
 .include spice/Passives.lib
+.include spice/JFET.lib
+.include spice/MOSFET.lib
 
 VCC VCC 0 5
 VBN BN 0 0.75
@@ -96,6 +98,18 @@ X_Z9 0 ZK9 1N4742A
 VPA PA 0 5
 X_POT PA PW 0 POTLIN PARAMS: R=10k POS=0.5 RW=0.1
 R_LOAD PW 0 10k
+
+* FETs: native JFET and public MOSFET subcircuit order is D G S.
+R_J1 VCC JD1 1k
+R_J2 VCC JD2 1k
+R_J3 VCC JD3 1k
+R_J4 VCC JD4 1k
+J_1 JD1 0 0 2N3819
+J_2 JD2 0 0 J111
+J_3 JD3 0 0 J112
+J_4 JD4 0 0 J113
+R_M1 VCC MD1 1k
+X_M1 MD1 VCC 0 2N7000
 
 .op
 .end

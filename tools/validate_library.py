@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SYMBOL_DIR = ROOT / "symbol"
 SPICE_DIR = ROOT / "spice"
 
-EXPECTED_SYMBOLS = 43
+EXPECTED_SYMBOLS = 48
 PROPERTY_RE = re.compile(r'\(property "([^"]+)" "([^"]*)"')
 TOP_SYMBOL_RE = re.compile(r'^\t\(symbol "([^"]+)"')
 PIN_NUMBER_RE = re.compile(r'^\s*\(number "([^"]+)"', re.MULTILINE)
@@ -112,7 +112,9 @@ def main() -> int:
         if definition_path.resolve() != model_path.resolve():
             fail(errors, f"{path.name}:{name} model is defined in a different library")
         device = properties["Sim.Device"].upper()
-        expected_device = "SUBCKT" if kind == "SUBCKT" else model_type
+        expected_device = "SUBCKT" if kind == "SUBCKT" else {
+            "NJF": "NJFET", "PJF": "PJFET",
+        }.get(model_type, model_type)
         if device != expected_device:
             fail(errors, f"{path.name}:{name} uses {device}, expected {expected_device}")
         mapped_pins = {item.split("=", 1)[0] for item in properties["Sim.Pins"].split()}

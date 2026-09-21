@@ -12,8 +12,22 @@ SPICE-based teaching exercises. Only symbols with working bundled ngspice
 models are distributed. Each included symbol has an explicit simulation pin
 mapping and a suitable footprint where applicable.
 
+The THT FET libraries include `2N3819`, `J111`, `J112`, `J113`, and `2N7000`
+with TO-92 footprints. Their generic educational models support biasing and
+switching exercises. Symbols follow the documented onsemi pin assignments;
+check the pinout before substituting another manufacturer's device, especially
+the `2N3819`. Model assumptions and pin assignments are documented in the
+model-source notes.
+
 See [MODEL_SOURCES.md](MODEL_SOURCES.md) for model provenance and calibration
 notes.
+
+The FET regression test checks DC data-sheet envelopes, JFET cutoff voltages,
+the MOSFET body diode, and transient switching. Run it from the repository root:
+
+```text
+ngspice -b -o ngspice.log tests/smoke/fets.cir
+```
 
 ## Install with the PCM repository (recommended)
 

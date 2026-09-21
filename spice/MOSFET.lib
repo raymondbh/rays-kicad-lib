@@ -1,0 +1,26 @@
+* Generic educational 2N7000 model, authored for this library.
+* Not a manufacturer-supplied SPICE model.
+* Reference: https://www.onsemi.com/download/data-sheet/pdf/2n7000-d.pdf
+* onsemi TO-92 pin assignment: 1=S, 2=G, 3=D.
+* Public subcircuit terminal order: D G S.
+*
+* The level-1 channel uses VTO=2 V and KP=0.12 A/V^2 with W/L=1.
+* Targets at 25 C: threshold within 0.8-3 V at ID=1 mA (VDS=VGS),
+* RDS(on) below 6 ohm at VGS=4.5 V/ID=75 mA and below 5 ohm at
+* VGS=10 V/ID=500 mA (pulsed rating). These are representative DC values.
+* Fixed capacitances approximate Ciss=44 pF, Coss=19 pF, Crss=4 pF.
+* An explicit source-to-drain diode represents the body diode; the core
+* junction saturation current is suppressed to avoid a second body diode.
+* Not fitted for gate charge, nonlinear capacitance, switching losses,
+* avalanche energy, temperature behavior, self-heating, or process spread.
+
+.SUBCKT 2N7000 D G S
+M_CHANNEL D G S S __2N7000_CORE W=1u L=1u
+C_GS G S 40p
+C_GD G D 4p
+C_DS D S 15p
+D_BODY S D __2N7000_BODY
+.model __2N7000_CORE NMOS (LEVEL=1 VTO=2 KP=0.12 LAMBDA=0.01
++ RD=1.5 RS=0.5 IS=1e-30 TNOM=25)
+.model __2N7000_BODY D (IS=1p N=1.1 RS=0.5 BV=60 IBV=10u TNOM=25)
+.ENDS 2N7000
