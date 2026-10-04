@@ -87,6 +87,21 @@ Unsuffixed symbols use the standard range, not a narrower selected gain grade.
 | [BC847 A/B/C](https://assets.nexperia.com/documents/data-sheet/BC847X_SER.pdf) | A: 110–220; B: 200–450; C: 420–800 | 2 mA | 5 V |
 | [BC857 A/B/C](https://assets.nexperia.com/documents/data-sheet/BC856_BC857_BC858.pdf) | A: 125–250; B: 220–475; C: 420–800 | 2 mA | 5 V |
 
+### Multi-transistor packages
+
+Use one symbol with separate units for each physical package. Keep the part
+number as `Value`; do not add layout variants such as `_Pair` or `_Array`.
+Units share their reference, footprint and package SPICE model. Optional visual
+outlines belong in the schematic. Keep physical pin numbers and unit assignments
+fixed, including when polarities differ.
+
+Describe dual polarity as `NPN/NPN`, `PNP/PNP` or `NPN/PNP`. Use `Matched Pair`
+only when matching is specified by the manufacturer, `Complementary` for mixed
+polarities, and `Dual General Purpose` for ordinary same-polarity pairs. For
+example: `NPN/NPN Matched Pair 45V 100mA hFE 200–450, SOT457`.
+Document thermal-model limitations separately from the physical description.
+See [SMD BJT reference conditions](BJT_ARRAYS.md) for the new package entries.
+
 ### JFET reference conditions
 
 - [onsemi 2N3819](https://www.onsemi.com/download/data-sheet/pdf/2n3819-d.pdf)

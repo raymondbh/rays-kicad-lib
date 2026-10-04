@@ -19,6 +19,11 @@ check the pinout before substituting another manufacturer's device, especially
 the `2N3819`. Model assumptions and pin assignments are documented in the
 model-source notes.
 
+The SMD BJT library includes MMBT3904/MMBT3906, matched and complementary
+pairs, and the MMPQ6700 quad. Multi-transistor packages use separate units with
+one shared footprint and SPICE model. See [SMD BJT usage and pinouts](docs/BJT_ARRAYS.md)
+for the full list, selected manufacturers and gain reference conditions.
+
 See [MODEL_SOURCES.md](MODEL_SOURCES.md) for model provenance and calibration
 notes.
 

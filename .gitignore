@@ -31,3 +31,5 @@ fp-info-cache
 # Generated PCM packages and simulation logs
 dist/
 ngspice.log
+__pycache__/
+*.pyc

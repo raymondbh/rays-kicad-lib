@@ -1,0 +1,534 @@
+[
+  {
+    "name": "BCM847DS",
+    "manufacturer": "Nexperia",
+    "datasheet": "https://assets.nexperia.com/documents/data-sheet/BCM847DS.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "package": "SOT457",
+    "matched": true,
+    "description": "NPN/NPN Matched Pair 45V 100mA hFE 200–450, SOT457",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "NPN",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      200,
+      450
+    ],
+    "gain_ic": 0.002,
+    "gain_vce": 5
+  },
+  {
+    "name": "BCM857DS",
+    "manufacturer": "Nexperia",
+    "datasheet": "https://assets.nexperia.com/documents/data-sheet/BCM857DS.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "package": "SOT457",
+    "matched": true,
+    "description": "PNP/PNP Matched Pair 45V 100mA hFE 200–450, SOT457",
+    "transistors": [
+      {
+        "polarity": "PNP",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      200,
+      450
+    ],
+    "gain_ic": 0.002,
+    "gain_vce": 5
+  },
+  {
+    "name": "DMMT3904W",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/DMMT3904W.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": true,
+    "description": "NPN/NPN Matched Pair 40V 200mA hFE 100–300, SOT363",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          3
+        ],
+        "b": 2,
+        "e": 4
+      },
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 1,
+        "e": 5
+      }
+    ],
+    "gain": [
+      100,
+      300
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  },
+  {
+    "name": "DMMT3906W",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/DMMT3906W.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": true,
+    "description": "PNP/PNP Matched Pair 40V 200mA hFE 100–300, SOT363",
+    "transistors": [
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 2,
+        "e": 4
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          6
+        ],
+        "b": 1,
+        "e": 5
+      }
+    ],
+    "gain": [
+      100,
+      300
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  },
+  {
+    "name": "BC817DPN",
+    "manufacturer": "Nexperia",
+    "datasheet": "https://assets.nexperia.com/documents/data-sheet/BC817DPN.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "package": "SOT457",
+    "matched": false,
+    "description": "NPN/PNP Complementary 45V 500mA hFE 160–400, SOT457",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      160,
+      400
+    ],
+    "gain_ic": 0.1,
+    "gain_vce": 1
+  },
+  {
+    "name": "BC847BPN",
+    "manufacturer": "Nexperia",
+    "datasheet": "https://assets.nexperia.com/documents/data-sheet/BC847BPN.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": false,
+    "description": "NPN/PNP Complementary 45V 100mA hFE 200–450, SOT363",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      200,
+      450
+    ],
+    "gain_ic": 0.002,
+    "gain_vce": 5
+  },
+  {
+    "name": "DMMT5551",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/DMMT5551.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "package": "SOT26",
+    "matched": true,
+    "description": "NPN/NPN Matched Pair 160V 200mA hFE 80–250, SOT26",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          1
+        ],
+        "b": 2,
+        "e": 6
+      },
+      {
+        "polarity": "NPN",
+        "c": [
+          4
+        ],
+        "b": 3,
+        "e": 5
+      }
+    ],
+    "gain": [
+      80,
+      250
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 5
+  },
+  {
+    "name": "DMMT5401",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/DMMT5401.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "package": "SOT26",
+    "matched": true,
+    "description": "PNP/PNP Matched Pair 150V 200mA hFE 60–240, SOT26",
+    "transistors": [
+      {
+        "polarity": "PNP",
+        "c": [
+          1
+        ],
+        "b": 2,
+        "e": 6
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          4
+        ],
+        "b": 3,
+        "e": 5
+      }
+    ],
+    "gain": [
+      60,
+      240
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 5
+  },
+  {
+    "name": "MMDT5551",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/MMDT5551.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": false,
+    "description": "NPN/NPN Dual General Purpose 160V 200mA hFE 80–250, SOT363",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "NPN",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      80,
+      250
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 5
+  },
+  {
+    "name": "MMDT5401",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/MMDT5401.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": false,
+    "description": "PNP/PNP Dual General Purpose 150V 200mA hFE 60–240, SOT363",
+    "transistors": [
+      {
+        "polarity": "PNP",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      60,
+      240
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 5
+  },
+  {
+    "name": "MMDT5501",
+    "manufacturer": "UTC",
+    "datasheet": "https://www.unisonic.com.tw/uploadfiles/836/part_no_pdf/MMDT5501.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": false,
+    "description": "NPN/PNP Complementary 160V 600mA hFE 120–270, SOT363",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      }
+    ],
+    "gain": [
+      120,
+      270
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 5
+  },
+  {
+    "name": "MMPQ6700",
+    "manufacturer": "onsemi",
+    "datasheet": "https://www.onsemi.com/download/data-sheet/pdf/mmpq6700-fcs-d.pdf",
+    "footprint": "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm",
+    "package": "SOIC-16",
+    "matched": false,
+    "description": "2xNPN/2xPNP Complementary 40V 200mA hFE 70 min, SOIC-16",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          1,
+          2
+        ],
+        "b": 15,
+        "e": 16
+      },
+      {
+        "polarity": "NPN",
+        "c": [
+          3,
+          4
+        ],
+        "b": 13,
+        "e": 14
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          5,
+          6
+        ],
+        "b": 11,
+        "e": 12
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          7,
+          8
+        ],
+        "b": 9,
+        "e": 10
+      }
+    ],
+    "gain": [
+      70,
+      null
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  },
+  {
+    "name": "MMBT3904",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/MMBT3904.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23",
+    "package": "SOT-23",
+    "matched": false,
+    "description": "NPN General Purpose 40V 200mA hFE 100–300, SOT-23",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          3
+        ],
+        "b": 1,
+        "e": 2
+      }
+    ],
+    "gain": [
+      100,
+      300
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  },
+  {
+    "name": "MMBT3906",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/MMBT3906.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-23",
+    "package": "SOT-23",
+    "matched": false,
+    "description": "PNP General Purpose 40V 200mA hFE 100–300, SOT-23",
+    "transistors": [
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 1,
+        "e": 2
+      }
+    ],
+    "gain": [
+      100,
+      300
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  },
+  {
+    "name": "MMDT3904",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/MMDT3904.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": false,
+    "description": "NPN/NPN Dual General Purpose 40V 200mA hFE 100–300, SOT363",
+    "transistors": [
+      {
+        "polarity": "NPN",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      },
+      {
+        "polarity": "NPN",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      }
+    ],
+    "gain": [
+      100,
+      300
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  },
+  {
+    "name": "MMDT3906",
+    "manufacturer": "Diodes Incorporated",
+    "datasheet": "https://www.diodes.com/datasheet/download/MMDT3906.pdf",
+    "footprint": "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+    "package": "SOT363",
+    "matched": false,
+    "description": "PNP/PNP Dual General Purpose 40V 200mA hFE 100–300, SOT363",
+    "transistors": [
+      {
+        "polarity": "PNP",
+        "c": [
+          3
+        ],
+        "b": 5,
+        "e": 4
+      },
+      {
+        "polarity": "PNP",
+        "c": [
+          6
+        ],
+        "b": 2,
+        "e": 1
+      }
+    ],
+    "gain": [
+      100,
+      300
+    ],
+    "gain_ic": 0.01,
+    "gain_vce": 1
+  }
+]

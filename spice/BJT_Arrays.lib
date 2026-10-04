@@ -1,0 +1,185 @@
+* SMD BJTs and arrays for KiCad/ngspice. One subcircuit per physical package.
+* Numeric terminals follow physical pin numbers; local model names are scoped.
+* See MODEL_SOURCES.md and docs/BJT_ARRAYS.md for provenance and limitations.
+* Identical nominal devices do not model production mismatch, self-heating,
+* thermal coupling, avalanche limits or safe operating area. TEMP is ambient.
+* Diodes parameters are provided by Diodes Incorporated AS IS; original source
+* URLs below include the manufacturer disclaimer and original model metadata.
+
+* BCM847DS
+* Datasheet: https://assets.nexperia.com/documents/data-sheet/BCM847DS.pdf
+* Library approximation, not a manufacturer-supplied model.
+.subckt BCM847DS 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 NPN(IS=1.822E-14 NF=0.9932 ISE=2.894E-16 NE=1.4 BF=324.4 IKF=0.109 VAF=82 NR=0.9931 ISC=9.982E-12 NC=1.763 BR=8.29 IKR=0.09 VAR=17.9 RB=10 IRB=5.00E-06 RBM=5 RE=0.649 RC=0.7014 XTB=0 EG=1.11 XTI=3 CJE=1.244E-11 VJE=0.7579 MJE=0.3656 TF=4.908E-10 XTF=9.51 VTF=2.927 ITF=0.3131 PTF=0 CJC=3.347E-12 VJC=0.5463 MJC=0.391 XCJC=0.6193 TR=9.00E-08 CJS=0 VJS=0.75 MJS=0.333 FC=0.979)
+Q2 3 5 4 T2
+.model T2 NPN(IS=1.822E-14 NF=0.9932 ISE=2.894E-16 NE=1.4 BF=324.4 IKF=0.109 VAF=82 NR=0.9931 ISC=9.982E-12 NC=1.763 BR=8.29 IKR=0.09 VAR=17.9 RB=10 IRB=5.00E-06 RBM=5 RE=0.649 RC=0.7014 XTB=0 EG=1.11 XTI=3 CJE=1.244E-11 VJE=0.7579 MJE=0.3656 TF=4.908E-10 XTF=9.51 VTF=2.927 ITF=0.3131 PTF=0 CJC=3.347E-12 VJC=0.5463 MJC=0.391 XCJC=0.6193 TR=9.00E-08 CJS=0 VJS=0.75 MJS=0.333 FC=0.979)
+.ends BCM847DS
+
+* BCM857DS
+* Datasheet: https://assets.nexperia.com/documents/data-sheet/BCM857DS.pdf
+* Library approximation, not a manufacturer-supplied model.
+.subckt BCM857DS 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 PNP(IS=2.014E-14 NF=0.9974 ISE=6.578E-15 NE=1.45 BF=315.3 IKF=0.079 VAF=39.15 NR=0.9952 ISC=1.633E-14 NC=1.15 BR=8.68 IKR=0.09 VAR=9.5 RB=10 IRB=5.00E-06 RBM=5.00E-06 RE=0.663 RC=0.718 CJE=1.135E-11 VJE=0.7071 MJE=0.3808 TF=6.546E-10 XTF=5.387 VTF=6.245 ITF=0.2108 PTF=0 CJC=6.395E-12 VJC=0.4951 MJC=0.44 XCJC=0.6288 TR=5.50E-08 CJS=0 VJS=0.75 MJS=0.333 XTB=0 XTI=3 EG=1.11 FC=0.9059)
+Q2 3 5 4 T2
+.model T2 PNP(IS=2.014E-14 NF=0.9974 ISE=6.578E-15 NE=1.45 BF=315.3 IKF=0.079 VAF=39.15 NR=0.9952 ISC=1.633E-14 NC=1.15 BR=8.68 IKR=0.09 VAR=9.5 RB=10 IRB=5.00E-06 RBM=5.00E-06 RE=0.663 RC=0.718 CJE=1.135E-11 VJE=0.7071 MJE=0.3808 TF=6.546E-10 XTF=5.387 VTF=6.245 ITF=0.2108 PTF=0 CJC=6.395E-12 VJC=0.4951 MJC=0.44 XCJC=0.6288 TR=5.50E-08 CJS=0 VJS=0.75 MJS=0.333 XTB=0 XTI=3 EG=1.11 FC=0.9059)
+.ends BCM857DS
+
+* DMMT3904W
+* Datasheet: https://www.diodes.com/datasheet/download/DMMT3904W.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/3320/DMMT3904W.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt DMMT3904W 1 2 3 4 5 6
+Q1 3 2 4 T1
+.model T1 NPN (IS=20.3f NF=1 BF=274 VAF=114 IKF=36.4m ISE=6.99p NE=2 BR=4 NR=1 VAR=24 IKR=90m RE=.657 RB=2.63 RC=.263 XTB=1.5 CJE=8.29p VJE=1.1 MJE=.5 CJC=7.1p VJC=.3 MJC=.3 TF=426p TR=71.3n EG=1.12)
+Q2 6 1 5 T2
+.model T2 NPN (IS=20.3f NF=1 BF=274 VAF=114 IKF=36.4m ISE=6.99p NE=2 BR=4 NR=1 VAR=24 IKR=90m RE=.657 RB=2.63 RC=.263 XTB=1.5 CJE=8.29p VJE=1.1 MJE=.5 CJC=7.1p VJC=.3 MJC=.3 TF=426p TR=71.3n EG=1.12)
+.ends DMMT3904W
+
+* DMMT3906W
+* Datasheet: https://www.diodes.com/datasheet/download/DMMT3906W.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/3322/DMMT3906W.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt DMMT3906W 1 2 3 4 5 6
+Q1 3 2 4 T1
+.model T1 PNP (IS=20.3f NF=1 BF=274 VAF=114 IKF=36.4m ISE=6.99p NE=2 BR=4 NR=1 VAR=20 IKR=90m RE=1.01 RB=4.03 RC=.403 XTB=1.5 CJE=12.1p VJE=1.1 MJE=.5 CJC=10.7p VJC=.3 MJC=.3 TF=531p TR=85.6n EG=1.12)
+Q2 6 1 5 T2
+.model T2 PNP (IS=20.3f NF=1 BF=274 VAF=114 IKF=36.4m ISE=6.99p NE=2 BR=4 NR=1 VAR=20 IKR=90m RE=1.01 RB=4.03 RC=.403 XTB=1.5 CJE=12.1p VJE=1.1 MJE=.5 CJC=10.7p VJC=.3 MJC=.3 TF=531p TR=85.6n EG=1.12)
+.ends DMMT3906W
+
+* BC817DPN
+* Datasheet: https://assets.nexperia.com/documents/data-sheet/BC817DPN.pdf
+* Library approximation, not a manufacturer-supplied model.
+.subckt BC817DPN 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 NPN (IS=1e-14 BF=260 NF=1 VAF=100 IKF=1 ISE=1e-15 NE=1.5 BR=5 RB=10 RC=.15 RE=.1 CJE=35p CJC=8p TF=.5n TR=100n XTB=1.5 XTI=3 EG=1.11)
+Q2 3 5 4 T2
+.model T2 PNP (IS=1e-14 BF=260 NF=1 VAF=100 IKF=1 ISE=1e-15 NE=1.5 BR=5 RB=10 RC=.15 RE=.1 CJE=35p CJC=8p TF=.5n TR=100n XTB=1.5 XTI=3 EG=1.11)
+.ends BC817DPN
+
+* BC847BPN
+* Datasheet: https://assets.nexperia.com/documents/data-sheet/BC847BPN.pdf
+* Library approximation, not a manufacturer-supplied model.
+.subckt BC847BPN 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 NPN(IS=1.822E-14 NF=0.9932 ISE=2.894E-16 NE=1.4 BF=324.4 IKF=0.109 VAF=82 NR=0.9931 ISC=9.982E-12 NC=1.763 BR=8.29 IKR=0.09 VAR=17.9 RB=10 IRB=5.00E-06 RBM=5 RE=0.649 RC=0.7014 XTB=0 EG=1.11 XTI=3 CJE=1.244E-11 VJE=0.7579 MJE=0.3656 TF=4.908E-10 XTF=9.51 VTF=2.927 ITF=0.3131 PTF=0 CJC=3.347E-12 VJC=0.5463 MJC=0.391 XCJC=0.6193 TR=9.00E-08 CJS=0 VJS=0.75 MJS=0.333 FC=0.979)
+Q2 3 5 4 T2
+.model T2 PNP(IS=2.014E-14 NF=0.9974 ISE=6.578E-15 NE=1.45 BF=315.3 IKF=0.079 VAF=39.15 NR=0.9952 ISC=1.633E-14 NC=1.15 BR=8.68 IKR=0.09 VAR=9.5 RB=10 IRB=5.00E-06 RBM=5.00E-06 RE=0.663 RC=0.718 CJE=1.135E-11 VJE=0.7071 MJE=0.3808 TF=6.546E-10 XTF=5.387 VTF=6.245 ITF=0.2108 PTF=0 CJC=6.395E-12 VJC=0.4951 MJC=0.44 XCJC=0.6288 TR=5.50E-08 CJS=0 VJS=0.75 MJS=0.333 XTB=0 XTI=3 EG=1.11 FC=0.9059)
+.ends BC847BPN
+
+* DMMT5551
+* Datasheet: https://www.diodes.com/datasheet/download/DMMT5551.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/3324/DMMT5551.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt DMMT5551 1 2 3 4 5 6
+Q1 1 2 6 T1
+.model T1 NPN (IS=6.5e-15 NF=1 BF=110 VAF=288 ISE=1e-14 NE=1.5 NR=1 BR=4.5 VAR=70 ISC=3e-12 NC=1.35 RC=.5 RB=.26 RE=.23 CJC=6.1p MJC=.31 VJC=.4 CJE=57p MJE=.35 VJE=.8 TF=.2n TR=1.5u XTB=1.4 QUASIMOD=1 RCO=170 VO=35 GAMMA=2.2e-7)
+Q2 4 3 5 T2
+.model T2 NPN (IS=6.5e-15 NF=1 BF=110 VAF=288 ISE=1e-14 NE=1.5 NR=1 BR=4.5 VAR=70 ISC=3e-12 NC=1.35 RC=.5 RB=.26 RE=.23 CJC=6.1p MJC=.31 VJC=.4 CJE=57p MJE=.35 VJE=.8 TF=.2n TR=1.5u XTB=1.4 QUASIMOD=1 RCO=170 VO=35 GAMMA=2.2e-7)
+.ends DMMT5551
+
+* DMMT5401
+* Datasheet: https://www.diodes.com/datasheet/download/DMMT5401.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/3323/DMMT5401.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt DMMT5401 1 2 3 4 5 6
+Q1 1 2 6 T1
+.model T1 PNP (IS=6e-14 NF=1 BF=130 VAF=360 ISE=6e-14 NE=1.5 NR=1 BR=6.5 VAR=37 ISC=8e-12 NC=1.35 RC=.08 RB=1 RE=.25 CJC=13p MJC=.46 VJC=.7 CJE=63p MJE=.41 VJE=.9 TF=.67n TR=1.03u XTB=1.5 QUASIMOD=1 RCO=14 GAMMA=1.5e-8)
+Q2 4 3 5 T2
+.model T2 PNP (IS=6e-14 NF=1 BF=130 VAF=360 ISE=6e-14 NE=1.5 NR=1 BR=6.5 VAR=37 ISC=8e-12 NC=1.35 RC=.08 RB=1 RE=.25 CJC=13p MJC=.46 VJC=.7 CJE=63p MJE=.41 VJE=.9 TF=.67n TR=1.03u XTB=1.5 QUASIMOD=1 RCO=14 GAMMA=1.5e-8)
+.ends DMMT5401
+
+* MMDT5551
+* Datasheet: https://www.diodes.com/datasheet/download/MMDT5551.pdf
+* Approximation: DMMT5551 manufacturer electrical model, MMDT5551 pinout.
+* Source: https://www.diodes.com/spice/download/3324/DMMT5551.spice.txt
+.subckt MMDT5551 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 NPN (IS=6.5e-15 NF=1 BF=110 VAF=288 ISE=1e-14 NE=1.5 NR=1 BR=4.5 VAR=70 ISC=3e-12 NC=1.35 RC=.5 RB=.26 RE=.23 CJC=6.1p MJC=.31 VJC=.4 CJE=57p MJE=.35 VJE=.8 TF=.2n TR=1.5u XTB=1.4 QUASIMOD=1 RCO=170 VO=35 GAMMA=2.2e-7)
+Q2 3 5 4 T2
+.model T2 NPN (IS=6.5e-15 NF=1 BF=110 VAF=288 ISE=1e-14 NE=1.5 NR=1 BR=4.5 VAR=70 ISC=3e-12 NC=1.35 RC=.5 RB=.26 RE=.23 CJC=6.1p MJC=.31 VJC=.4 CJE=57p MJE=.35 VJE=.8 TF=.2n TR=1.5u XTB=1.4 QUASIMOD=1 RCO=170 VO=35 GAMMA=2.2e-7)
+.ends MMDT5551
+
+* MMDT5401
+* Datasheet: https://www.diodes.com/datasheet/download/MMDT5401.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/2558/MMDT5401.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt MMDT5401 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 PNP (IS=6e-14 NF=1 BF=130 VAF=360 ISE=6e-14 NE=1.5 NR=1 BR=6.5 VAR=37 ISC=8e-12 NC=1.35 RC=.08 RB=1 RE=.25 CJC=13p MJC=.46 VJC=.7 CJE=63p MJE=.41 VJE=.9 TF=.67n TR=1.03u XTB=1.5 QUASIMOD=1 RCO=14 GAMMA=1.5e-8)
+Q2 3 5 4 T2
+.model T2 PNP (IS=6e-14 NF=1 BF=130 VAF=360 ISE=6e-14 NE=1.5 NR=1 BR=6.5 VAR=37 ISC=8e-12 NC=1.35 RC=.08 RB=1 RE=.25 CJC=13p MJC=.46 VJC=.7 CJE=63p MJE=.41 VJE=.9 TF=.67n TR=1.03u XTB=1.5 QUASIMOD=1 RCO=14 GAMMA=1.5e-8)
+.ends MMDT5401
+
+* MMDT5501
+* Datasheet: https://www.unisonic.com.tw/uploadfiles/836/part_no_pdf/MMDT5501.pdf
+* Library approximation, not a manufacturer-supplied model.
+.subckt MMDT5501 1 2 3 4 5 6
+Q1 6 2 1 T1
+.model T1 NPN (IS=1e-14 BF=190 NF=1 VAF=150 IKF=.3 ISE=1e-15 NE=1.5 BR=5 RB=10 RC=.5 RE=.2 CJE=20p CJC=6p TF=.8n TR=1u XTB=1.5 XTI=3 EG=1.11)
+Q2 3 5 4 T2
+.model T2 PNP (IS=1e-14 BF=190 NF=1 VAF=150 IKF=.3 ISE=1e-15 NE=1.5 BR=5 RB=10 RC=.5 RE=.2 CJE=20p CJC=6p TF=.8n TR=1u XTB=1.5 XTI=3 EG=1.11)
+.ends MMDT5501
+
+* MMPQ6700
+* Datasheet: https://www.onsemi.com/download/data-sheet/pdf/mmpq6700-fcs-d.pdf
+* Library approximation, not a manufacturer-supplied model.
+.subckt MMPQ6700 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+Q1 1 15 16 T1
+.model T1 NPN(IS=1E-14 VAF=100 Bf=300 IKF=0.4 XTB=1.5 BR=4 CJC=4E-12 CJE=8E-12 RB=20 RC=0.1 RE=0.1 TR=250E-9 TF=350E-12 ITF=1 VTF=2 XTF=3)
+* Numerical internal collector strap: 1 uohm avoids zero-volt source loops.
+RC1_2 1 2 1u
+Q2 3 13 14 T2
+.model T2 NPN(IS=1E-14 VAF=100 Bf=300 IKF=0.4 XTB=1.5 BR=4 CJC=4E-12 CJE=8E-12 RB=20 RC=0.1 RE=0.1 TR=250E-9 TF=350E-12 ITF=1 VTF=2 XTF=3)
+* Numerical internal collector strap: 1 uohm avoids zero-volt source loops.
+RC2_4 3 4 1u
+Q3 5 11 12 T3
+.model T3 PNP(IS=1E-14 VAF=100 BF=200 IKF=0.4 XTB=1.5 BR=4 CJC=4.5E-12 CJE=10E-12 RB=20 RC=0.1 RE=0.1 TR=250E-9 TF=350E-12 ITF=1 VTF=2 XTF=3)
+* Numerical internal collector strap: 1 uohm avoids zero-volt source loops.
+RC3_6 5 6 1u
+Q4 7 9 10 T4
+.model T4 PNP(IS=1E-14 VAF=100 BF=200 IKF=0.4 XTB=1.5 BR=4 CJC=4.5E-12 CJE=10E-12 RB=20 RC=0.1 RE=0.1 TR=250E-9 TF=350E-12 ITF=1 VTF=2 XTF=3)
+* Numerical internal collector strap: 1 uohm avoids zero-volt source loops.
+RC4_8 7 8 1u
+.ends MMPQ6700
+
+* MMBT3904
+* Datasheet: https://www.diodes.com/datasheet/download/MMBT3904.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/2869/MMBT3904.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt MMBT3904 1 2 3
+Q1 3 1 2 T1
+.model T1 NPN (IS=48.3f NF=1 BF=410 VAF=114 IKF=.121 ISE=13.1p NE=2 BR=4 NR=1 VAR=24 IKR=.3 RE=2.63 RB=10.5 RC=1.05 XTB=1.5 CJE=9.67p VJE=1.1 MJE=.5 CJC=8.7p VJC=.3 MJC=.3 TF=440p TR=74.7n EG=1.12)
+.ends MMBT3904
+
+* MMBT3906
+* Datasheet: https://www.diodes.com/datasheet/download/MMBT3906.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/2962/MMBT3906.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt MMBT3906 1 2 3
+Q1 3 1 2 T1
+.model T1 PNP (IS=20.3f NF=1 BF=192 VAF=114 IKF=60.7m ISE=12.9p NE=2 BR=4 NR=1 VAR=20 IKR=.15 RE=1.16 RB=4.63 RC=.463 XTB=1.5 CJE=7.6p VJE=1.1 MJE=.5 CJC=6.52p VJC=.3 MJC=.3 TF=589p TR=98.4n EG=1.12)
+.ends MMBT3906
+
+* MMDT3904
+* Datasheet: https://www.diodes.com/datasheet/download/MMDT3904.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/2905/MMDT3904.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt MMDT3904 1 2 3 4 5 6
+Q1 3 5 4 T1
+.model T1 NPN (IS=48.3f NF=1 BF=410 VAF=114 IKF=.121 ISE=13.1p NE=2 BR=4 NR=1 VAR=24 IKR=.3 RE=2.63 RB=10.5 RC=1.05 XTB=1.5 CJE=9.67p VJE=1.1 MJE=.5 CJC=8.7p VJC=.3 MJC=.3 TF=440p TR=74.7n EG=1.12)
+Q2 6 2 1 T2
+.model T2 NPN (IS=48.3f NF=1 BF=410 VAF=114 IKF=.121 ISE=13.1p NE=2 BR=4 NR=1 VAR=24 IKR=.3 RE=2.63 RB=10.5 RC=1.05 XTB=1.5 CJE=9.67p VJE=1.1 MJE=.5 CJC=8.7p VJC=.3 MJC=.3 TF=440p TR=74.7n EG=1.12)
+.ends MMDT3904
+
+* MMDT3906
+* Datasheet: https://www.diodes.com/datasheet/download/MMDT3906.pdf
+* Manufacturer parameter source: https://www.diodes.com/spice/download/2893/MMDT3906.spice.txt
+* Electrical parameters retained; scoped model names and package wrapper added.
+.subckt MMDT3906 1 2 3 4 5 6
+Q1 3 5 4 T1
+.model T1 PNP (IS=7.21e-16 NF=1 BF=410 VAF=114 IKF=48.6m ISE=1.01p NE=2 BR=4 NR=1 VAR=20 IKR=.12 RE=1.21 RB=4.83 RC=.483 XTB=1.5 CJE=10.9p VJE=1.1 MJE=.5 CJC=7.57p VJC=.3 MJC=.3 TF=558p TR=84.1n EG=1.12)
+Q2 6 2 1 T2
+.model T2 PNP (IS=7.21e-16 NF=1 BF=410 VAF=114 IKF=48.6m ISE=1.01p NE=2 BR=4 NR=1 VAR=20 IKR=.12 RE=1.21 RB=4.83 RC=.483 XTB=1.5 CJE=10.9p VJE=1.1 MJE=.5 CJC=7.57p VJC=.3 MJC=.3 TF=558p TR=84.1n EG=1.12)
+.ends MMDT3906

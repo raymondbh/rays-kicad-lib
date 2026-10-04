@@ -115,6 +115,50 @@ gate charge, self-heating, temperature corners, or manufacturing spread. JFET
 gate breakdown and MOSFET gate-oxide breakdown are not modeled. The MOSFET diode's
 breakdown parameter does not qualify the model for avalanche-energy analysis.
 
+## `spice/BJT_Arrays.lib`
+
+These 16 package wrappers are repository-authored. Physical pin assignments,
+footprints and gain reference conditions are listed in
+[the SMD BJT notes](docs/BJT_ARRAYS.md), with manufacturer data-sheet links.
+The numerical electrical models have the following origins:
+
+| Package | Electrical model origin |
+|---|---|
+| `BCM847DS` | Two existing BC847B models; nominal matching approximation. |
+| `BCM857DS` | Two existing BC857B models; nominal matching approximation. |
+| `DMMT3904W` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/3320/DMMT3904W.spice.txt), unchanged apart from local model names and package wrapping. |
+| `DMMT3906W` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/3322/DMMT3906W.spice.txt), unchanged apart from local model names and package wrapping. |
+| `BC817DPN` | Repository-authored generic NPN/PNP models (BF=260, IKF=1 A); checked at 100 mA, 1 V. |
+| `BC847BPN` | Existing BC847B and BC857B models; complementary approximation. |
+| `DMMT5551` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/3324/DMMT5551.spice.txt), unchanged apart from local model names and package wrapping. |
+| `DMMT5401` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/3323/DMMT5401.spice.txt), unchanged apart from local model names and package wrapping. |
+| `MMDT5551` | DMMT5551 electrical parameters reused with the MMDT5551 pinout; a family approximation, not an exact manufacturer model. |
+| `MMDT5401` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/2558/MMDT5401.spice.txt), unchanged apart from local model names and package wrapping. |
+| `MMDT5501` | Repository-authored generic NPN/PNP models (BF=190, IKF=0.3 A); checked against UTC gain limits at 10 mA, 5 V. |
+| `MMPQ6700` | Existing 2N3904/2N3906 models, corresponding to the transistor types referenced by the onsemi data sheet; package approximation. |
+| `MMBT3904` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/2869/MMBT3904.spice.txt), unchanged apart from local model names and package wrapping. |
+| `MMBT3906` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/2962/MMBT3906.spice.txt), unchanged apart from local model names and package wrapping. |
+| `MMDT3904` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/2905/MMDT3904.spice.txt), unchanged apart from local model names and package wrapping. |
+| `MMDT3906` | [Diodes manufacturer parameters](https://www.diodes.com/spice/download/2893/MMDT3906.spice.txt), unchanged apart from local model names and package wrapping. |
+
+Manufacturer parameters retain their source attribution and applicable terms;
+the wrapper does not make them repository-authored electrical models. Original
+Diodes source URLs include the manufacturer's disclaimer and model metadata.
+
+The approximations are for nominal bias, switching and teaching exercises.
+Identical model copies give ideal nominal matching; no production spread,
+thermal coupling, self-heating, avalanche rating or safe operating area is
+represented. Global temperature is not a thermal connection between devices.
+Capacitance, noise and temperature accuracy have not been qualified for the
+approximations. Description ratings are hardware limits, not simulated clamps.
+
+`tests/check_bjt_models.py` measures all 32 transistor sections at the selected
+hFE test points, tests loaded switching and checks the six matched packages as
+current mirrors and differential pairs. Mirror collectors use equal voltages
+to separate nominal matching from Early-effect error. These regressions do not
+establish full data-sheet compliance. `tests/check_bjt_kicad.py` verifies actual
+KiCad SPICE/PCB exports, including package grouping and an omitted unit.
+
 ## Redistribution note
 
 The repository itself is MIT licensed. Historical imported and manufacturer

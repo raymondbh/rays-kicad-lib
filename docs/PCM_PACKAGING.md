@@ -20,11 +20,35 @@ ngspice -b -o ua741-transient.log tests/smoke/ua741_transient.cir
 ngspice -b -o fets.log tests/smoke/fets.cir
 ```
 
-The operating-point tests instantiate every public model. The isolated UA741
+The operating-point tests cover the original model libraries. The isolated UA741
 test also verifies transient convergence without coupling unrelated op-amp
 macromodels into the same transient analysis.
 The FET test checks DC data-sheet envelopes, JFET cutoff voltages, the MOSFET
 body diode, and transient switching.
+
+Run the new SMD BJT model tests and actual KiCad 10 netlist exports as well:
+
+```text
+python tests/check_bjt_models.py
+python tests/check_bjt_kicad.py --kicad-cli kicad-cli
+```
+
+The BJT checks cover all 16 new package models (32 transistor sections), physical
+pin ordering and one PCB/BOM component per package. Generated decks, schematics
+and logs are stored in `dist/`. CI runs the static and ngspice checks; the KiCad
+export test requires a local KiCad 10 installation.
+
+On Windows, KiCad's bundled Python and ngspice DLL can run the tests without a
+separate Python or ngspice installation. For example, in PowerShell:
+
+```powershell
+$env:NGSPICE_DLL = 'C:/Program Files/KiCad/10.0/bin/ngspice.dll'
+& 'C:/Program Files/KiCad/10.0/bin/python.exe' tests/check_bjt_models.py
+& 'C:/Program Files/KiCad/10.0/bin/python.exe' tools/run_ngspice.py tests/smoke/fets.cir
+& 'C:/Program Files/KiCad/10.0/bin/python.exe' tests/check_bjt_kicad.py --kicad-cli 'C:/Program Files/KiCad/10.0/bin/kicad-cli.exe'
+```
+
+`tools/run_ngspice.py` also accepts the other smoke-test decks listed above.
 
 ### Smoke-test requirements and troubleshooting
 

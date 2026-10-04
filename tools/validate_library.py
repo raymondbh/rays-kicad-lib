@@ -4,16 +4,19 @@
 from __future__ import annotations
 
 import re
+import json
 import sys
 from collections import Counter
 from pathlib import Path
+
+from kicad_sexpr import parse, children, child, properties as symbol_properties
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SYMBOL_DIR = ROOT / "symbol"
 SPICE_DIR = ROOT / "spice"
 
-EXPECTED_SYMBOLS = 48
+EXPECTED_SYMBOLS = 64
 PROPERTY_RE = re.compile(r'\(property "([^"]+)" "([^"]*)"')
 TOP_SYMBOL_RE = re.compile(r'^\t\(symbol "([^"]+)"')
 PIN_NUMBER_RE = re.compile(r'^\s*\(number "([^"]+)"', re.MULTILINE)
@@ -89,7 +92,8 @@ def main() -> int:
         if missing:
             fail(errors, f"{path.name}:{name} has empty or missing fields: {', '.join(missing)}")
             continue
-        if properties["Value"] != name:
+        expected_value = name
+        if properties["Value"] != expected_value:
             fail(errors, f"{path.name}:{name} has Value={properties['Value']}")
         library = properties["Sim.Library"]
         if "\\" in library:
@@ -125,6 +129,8 @@ def main() -> int:
     if unused:
         fail(errors, f"SPICE models without symbols: {sorted(unused)}")
 
+    validate_bjt_catalog(errors)
+
     legacy_files = list((SPICE_DIR / "Model").glob("**/*"))
     if any(path.is_file() for path in legacy_files):
         fail(errors, "Legacy files remain below spice/Model")
@@ -136,6 +142,65 @@ def main() -> int:
 
     print(f"Validated {len(symbols)} symbols and {len(definitions)} public SPICE models.")
     return 0
+
+
+CATALOG = json.loads((ROOT / 'tools/bjt_catalog.json').read_text(encoding='utf-8'))
+
+
+
+def validate_bjt_catalog(errors: list[str]) -> None:
+    """Check every physical terminal, unit and package wrapper against the catalog."""
+    library = parse((SYMBOL_DIR / 'rayslib-bjt-smd.kicad_sym').read_text(encoding='utf-8'))
+    entries = {s[1]: s for s in children(library, 'symbol')}
+    models = (SPICE_DIR / 'BJT_Arrays.lib').read_text(encoding='utf-8')
+    for d in CATALOG:
+        base = d['name']
+        expected = {str(p): (i, terminal) for i,t in enumerate(d['transistors'],1)
+                    for terminal,pins in [('C',t['c']),('B',[t['b']]),('E',[t['e']])]
+                    for p in pins}
+        names = [base]
+        for name in names:
+            if name not in entries:
+                fail(errors, f'Missing BJT view {name}')
+                continue
+            s = entries[name]
+            props = symbol_properties(s)
+            for field,value in [('Value',base),('Footprint',d['footprint']),('Datasheet',d['datasheet']),
+                                ('Description',d['description']),('Sim.Name',base),
+                                ('Sim.Library','${KICAD_RAYSLIB}/spice/BJT_Arrays.lib')]:
+                if props.get(field) != value:
+                    fail(errors, f'{name}: unexpected {field}')
+            mappings = props.get('Sim.Pins','').split()
+            if sorted(mappings) != sorted(f'{p}={p}' for p in expected):
+                fail(errors, f'{name}: SPICE mapping differs from physical pin order')
+            actual = {}
+            units = set()
+            for body in children(s,'symbol'):
+                unit = int(body[1].rsplit('_',2)[1])
+                units.add(unit)
+                for pin in children(body,'pin'):
+                    number = child(pin,'number')[1]
+                    if number in actual:
+                        fail(errors, f'{name}: duplicate physical pin {number}')
+                    actual[number] = (unit,child(pin,'name')[1])
+            wanted = expected if name == base else {p:(1,t) for p,(_,t) in expected.items()}
+            if actual != wanted:
+                fail(errors, f'{name}: wrong transistor terminal or unit assignment')
+            if units != {v[0] for v in wanted.values()}:
+                fail(errors, f'{name}: unexpected unit set')
+        match = re.search(r'^\.subckt '+base+r'\s+([^\n]+)\n(.*?)^\.ends\b',models,re.I|re.M|re.S)
+        if not match or match[1].split() != sorted(expected,key=int):
+            fail(errors, f'{base}: incorrect subcircuit terminals')
+            continue
+        for i,t in enumerate(d['transistors'],1):
+            q = re.search(r'^Q'+str(i)+r'\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)',match[2],re.M)
+            if not q or list(q.groups()[:3]) != [str(t['c'][0]),str(t['b']),str(t['e'])]:
+                fail(errors, f'{base}: transistor {i} C/B/E mapping is incorrect')
+            elif not re.search(r'^\.model\s+'+re.escape(q[4])+r'\s+'+t['polarity']+r'\b',match[2],re.I|re.M):
+                fail(errors, f'{base}: transistor {i} polarity is incorrect')
+            for p in t['c'][1:]:
+                if not re.search(r'^RC\S+\s+'+str(t['c'][0])+r'\s+'+str(p)+r'\s+1u\s*$',match[2],re.M):
+                    fail(errors, f'{base}: missing internal collector strap to pin {p}')
 
 
 if __name__ == "__main__":
