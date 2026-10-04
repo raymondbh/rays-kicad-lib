@@ -57,7 +57,7 @@
 				)
 			)
 		)
-		(property "Description" "18 V at 5 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 18V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -112,7 +112,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -267,7 +267,7 @@
 				)
 			)
 		)
-		(property "Description" "2.7 V at 5 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 2.7V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -322,7 +322,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -477,7 +477,7 @@
 				)
 			)
 		)
-		(property "Description" "30 V at 2 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 30V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -532,7 +532,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -687,7 +687,7 @@
 				)
 			)
 		)
-		(property "Description" "3.6 V at 5 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 3.6V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -742,7 +742,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -897,7 +897,7 @@
 				)
 			)
 		)
-		(property "Description" "5.1 V at 5 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 5.1V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -952,7 +952,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1107,7 +1107,7 @@
 				)
 			)
 		)
-		(property "Description" "68 V at 1 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 68V at 2.5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1162,7 +1162,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1317,7 +1317,7 @@
 				)
 			)
 		)
-		(property "Description" "6.2 V at 5 mA, 500 mW, ±5%, Zener diode, DO-35"
+		(property "Description" "Zener 6.2V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1372,7 +1372,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1527,7 +1527,7 @@
 				)
 			)
 		)
-		(property "Description" "RED Generic LED, 2.0 V at 20 mA, 5 mm"
+		(property "Description" "Generic Red LED 2.0V at 20mA, 5mm"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1582,7 +1582,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "LED diode"
+		(property "ki_keywords" "diode LED red indicator 5mm THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1762,7 +1762,7 @@
 				)
 			)
 		)
-		(property "Description" "GREEN Generic LED, 2.2 V at 20 mA, 5 mm"
+		(property "Description" "Generic Green LED 2.2V at 20mA, 5mm"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1817,7 +1817,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "LED diode"
+		(property "ki_keywords" "diode LED green indicator 5mm THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1998,7 +1998,7 @@
 				)
 			)
 		)
-		(property "Description" "BLUE Generic LED, 3.1 V at 20 mA, 5 mm"
+		(property "Description" "Generic Blue LED 3.1V at 20mA, 5mm"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2053,7 +2053,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "LED diode"
+		(property "ki_keywords" "diode LED blue indicator 5mm THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2234,7 +2234,7 @@
 				)
 			)
 		)
-		(property "Description" "WHITE Generic LED, 3.2 V at 20 mA, 5 mm"
+		(property "Description" "Generic White LED 3.2V at 20mA, 5mm"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2289,7 +2289,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "LED diode"
+		(property "ki_keywords" "diode LED white indicator 5mm THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2471,7 +2471,7 @@
 				)
 			)
 		)
-		(property "Description" "50 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 50V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2526,7 +2526,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2683,7 +2683,7 @@
 				)
 			)
 		)
-		(property "Description" "100 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 100V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2738,7 +2738,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2895,7 +2895,7 @@
 				)
 			)
 		)
-		(property "Description" "200 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 200V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2950,7 +2950,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3107,7 +3107,7 @@
 				)
 			)
 		)
-		(property "Description" "400 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 400V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3162,7 +3162,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3319,7 +3319,7 @@
 				)
 			)
 		)
-		(property "Description" "600 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 600V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3374,7 +3374,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3531,7 +3531,7 @@
 				)
 			)
 		)
-		(property "Description" "800 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 800V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3586,7 +3586,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3743,7 +3743,7 @@
 				)
 			)
 		)
-		(property "Description" "1000 V, 1 A, general-purpose rectifier diode, DO-41"
+		(property "Description" "Rectifier 1000V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3798,7 +3798,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode rectifier 1N400x"
+		(property "ki_keywords" "diode rectifier general-purpose DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3955,7 +3955,7 @@
 				)
 			)
 		)
-		(property "Description" "20 V, 1 A Schottky rectifier, 0.45 V maximum forward voltage, DO-41"
+		(property "Description" "Schottky Rectifier 20V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4010,7 +4010,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode Schottky rectifier 1N581x"
+		(property "ki_keywords" "diode Schottky rectifier DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4167,7 +4167,7 @@
 				)
 			)
 		)
-		(property "Description" "30 V, 1 A Schottky rectifier, 0.55 V maximum forward voltage, DO-41"
+		(property "Description" "Schottky Rectifier 30V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4222,7 +4222,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode Schottky rectifier 1N581x"
+		(property "ki_keywords" "diode Schottky rectifier DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4379,7 +4379,7 @@
 				)
 			)
 		)
-		(property "Description" "40 V, 1 A Schottky rectifier, 0.60 V maximum forward voltage, DO-41"
+		(property "Description" "Schottky Rectifier 40V 1A, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4434,7 +4434,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode Schottky rectifier 1N581x"
+		(property "ki_keywords" "diode Schottky rectifier DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4592,7 +4592,7 @@
 				)
 			)
 		)
-		(property "Description" "10 V at 5 mA, 500 mW, ±6%, Zener diode, DO-35"
+		(property "Description" "Zener 10V at 5mA 500mW, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4647,7 +4647,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode Zener BZX55C 10V voltage regulator"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4803,7 +4803,7 @@
 				)
 			)
 		)
-		(property "Description" "12 V at 21 mA, 1.3 W, +/-5%, Zener diode, DO-41"
+		(property "Description" "Zener 12V at 21mA 1.3W, DO-41"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4858,7 +4858,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode Zener 1N4742A 12V voltage regulator"
+		(property "ki_keywords" "diode Zener voltage-regulator DO-41 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5014,7 +5014,7 @@
 				)
 			)
 		)
-		(property "Description" "100 V, 150 mA average, fast switching diode, DO-35"
+		(property "Description" "Fast Switching 100V 150mA, DO-35"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5069,7 +5069,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode fast switching signal 1N4148 DO-35"
+		(property "ki_keywords" "diode switching signal fast DO-35 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)

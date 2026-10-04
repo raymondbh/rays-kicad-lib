@@ -36,7 +36,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(effects
 				(font
@@ -45,7 +45,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Potentiometer"
+		(property "Description" "Linear Potentiometer, Horizontal THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -98,7 +98,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "resistor variable"
+		(property "ki_keywords" "resistor potentiometer variable linear horizontal THT"
 			(at 0 0 0)
 			(effects
 				(font

@@ -43,8 +43,14 @@ symbol and exercised by the ngspice smoke test.
 
 The Vishay PSpice topology was preserved, the `POLY(1)` source was converted to
 an ngspice-compatible behavioral source, and each breakdown offset was
-calibrated at the data-sheet test current. Original source URLs and attribution
+calibrated at selected nominal operating points. Original source URLs and attribution
 are retained beside each subcircuit.
+
+The October 2026 symbol metadata review uses the current
+[Vishay BZX55 data sheet](https://www.vishay.com/docs/85604/bzx55.pdf): BZX55C30
+is specified at 5 mA and BZX55C68 at 2.5 mA. Their previous descriptions used
+2 mA and 1 mA. The model parameters were not changed or recalibrated during
+this review; the revised descriptions do not establish a new model calibration.
 
 ## `spice/OpAmps.lib`
 
@@ -58,6 +64,11 @@ The public models use physical PDIP-8 pin order. PSpice-only polynomial sources
 in the TL072 model were converted to ngspice-compatible behavioral sources, and
 its original manufacturer comments and attribution are retained. The UA741 and
 LM358 models are documented, ngspice-native educational macromodels.
+
+The TL072CP description follows section 5.8 of
+[TI TL07xx Rev. W](https://www.ti.com/lit/ds/symlink/tl072.pdf), which specifies
+5.25 MHz typical GBW for the P package. The bundled SLOJ067 model dates from
+1989 and was not refitted to that specification during the metadata review.
 
 ## `spice/Passives.lib`
 

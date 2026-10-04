@@ -53,7 +53,7 @@
 				)
 			)
 		)
-		(property "Description" "Dual low-power operational amplifier, 700 kHz, PDIP-8"
+		(property "Description" "Dual Low-Power Op-Amp 700kHz, PDIP-8"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -108,7 +108,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "dual low-power opamp operational amplifier LM358 single-supply PDIP-8"
+		(property "ki_keywords" "amplifier opamp dual low-power single-supply PDIP-8 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -357,7 +357,7 @@
 				)
 			)
 		)
-		(property "Description" "Dual low-noise JFET-input operational amplifier, 3 MHz, PDIP-8"
+		(property "Description" "Dual Low-Noise JFET-Input Op-Amp 5.25MHz, PDIP-8"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -412,7 +412,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "dual low-noise JFET opamp operational amplifier TL072 PDIP-8"
+		(property "ki_keywords" "amplifier opamp dual low-noise JFET-input PDIP-8 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -661,7 +661,7 @@
 				)
 			)
 		)
-		(property "Description" "Single general-purpose operational amplifier, 1 MHz, PDIP-8"
+		(property "Description" "Single General Purpose Op-Amp 1MHz, PDIP-8"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -726,7 +726,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "single opamp operational amplifier UA741 741 PDIP-8"
+		(property "ki_keywords" "amplifier opamp single general-purpose PDIP-8 THT"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)

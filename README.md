@@ -22,6 +22,9 @@ model-source notes.
 See [MODEL_SOURCES.md](MODEL_SOURCES.md) for model provenance and calibration
 notes.
 
+Follow [the symbol conventions](docs/SYMBOL_CONVENTIONS.md) when writing
+descriptions, search keywords, and data-sheet references.
+
 The FET regression test checks DC data-sheet envelopes, JFET cutoff voltages,
 the MOSFET body diode, and transient switching. Run it from the repository root:
 

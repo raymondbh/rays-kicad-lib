@@ -23,11 +23,11 @@
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "Description" "N-channel enhancement MOSFET, 60 V, 200 mA, onsemi TO-92 pinout; generic educational SPICE model"
+		(property "Description" "N-Channel E-MOSFET 60V 200mA, TO-92"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "ki_keywords" "transistor N-channel MOSFET enhancement switch"
+		(property "ki_keywords" "transistor MOSFET N-channel enhancement switch TO-92 THT"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)

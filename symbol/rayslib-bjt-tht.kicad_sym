@@ -37,7 +37,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/149/2N3904-82270.pdf"
+		(property "Datasheet" "https://www.onsemi.com/download/data-sheet/pdf/2n3904-d.pdf"
 			(at 63.5 0 0)
 			(effects
 				(font
@@ -46,7 +46,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN General Purpose 40V 200mA 625mW, TO-92"
+		(property "Description" "NPN General Purpose 40V 200mA hFE 100–300, TO-92"
 			(at 0 0 0)
 			(effects
 				(font
@@ -100,7 +100,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "NPN"
+		(property "ki_keywords" "transistor BJT NPN general-purpose amplifier switch TO-92 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -299,7 +299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/149/2n3906-285843.pdf"
+		(property "Datasheet" "https://www.onsemi.com/download/data-sheet/pdf/2n3906-d.pdf"
 			(at 35.56 0 0)
 			(effects
 				(font
@@ -308,7 +308,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP General Purpose 40V 200mA 625mW, TO-92"
+		(property "Description" "PNP General Purpose 40V 200mA hFE 100–300, TO-92"
 			(at 0 0 0)
 			(effects
 				(font
@@ -362,7 +362,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "PNP"
+		(property "ki_keywords" "transistor BJT PNP general-purpose amplifier switch TO-92 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -546,7 +546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP General Purpose 150V 600mA 625mW, TO-92"
+		(property "Description" "PNP General Purpose 150V 600mA hFE 60–240, TO-92"
 			(at 0 0 0)
 			(effects
 				(font
@@ -600,7 +600,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "PNP"
+		(property "ki_keywords" "transistor BJT PNP general-purpose amplifier switch TO-92 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -784,7 +784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN General Purpose 160V 600mA 625mW, TO-92"
+		(property "Description" "NPN General Purpose 160V 600mA hFE 80–250, TO-92"
 			(at 0 0 0)
 			(effects
 				(font
@@ -838,7 +838,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "NPN"
+		(property "ki_keywords" "transistor BJT NPN general-purpose amplifier switch TO-92 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1037,7 +1037,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/149/BD175-24247.pdf"
+		(property "Datasheet" "https://www.onsemi.com/download/data-sheet/pdf/bd179-fcs-d.pdf"
 			(at 63.5 0 0)
 			(effects
 				(font
@@ -1046,7 +1046,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN Medium Power 45V 3A 30W, TO-126"
+		(property "Description" "NPN Medium Power 45V 3A hFE 40–250, TO-126"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1100,7 +1100,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "NPN"
+		(property "ki_keywords" "transistor BJT NPN medium-power amplifier switch TO-126 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1299,7 +1299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/149/bd176-293924.pdf"
+		(property "Datasheet" "https://www.onsemi.com/download/data-sheet/pdf/bd176-d.pdf"
 			(at 35.56 0 0)
 			(effects
 				(font
@@ -1308,7 +1308,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP Medium Power 45V 3A 30W, TO-126"
+		(property "Description" "PNP Medium Power 45V 3A hFE 40–250, TO-126"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1362,7 +1362,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "PNP"
+		(property "ki_keywords" "transistor BJT PNP medium-power amplifier switch TO-126 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1546,7 +1546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN Medium Power 80V 1.5A 12.5 W, TO-126"
+		(property "Description" "NPN Medium Power 80V 1.5A hFE 40–250, TO-126"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1600,7 +1600,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "NPN transistor BJT medium power TO-126"
+		(property "ki_keywords" "transistor BJT NPN medium-power amplifier switch TO-126 THT"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1808,7 +1808,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP Medium Power 80V 1.5A 12.5 W, TO-126"
+		(property "Description" "PNP Medium Power 80V 1.5A hFE 40–250, TO-126"
 			(at 0 0 0)
 			(effects
 				(font
@@ -1862,7 +1862,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "PNP transistor BJT medium power TO-126"
+		(property "ki_keywords" "transistor BJT PNP medium-power amplifier switch TO-126 THT"
 			(at 0 0 0)
 			(effects
 				(font

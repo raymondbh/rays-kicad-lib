@@ -57,7 +57,7 @@
 				)
 			)
 		)
-		(property "Description" "12 V at 5 mA, 400 mW, approximately ±2%, Zener diode, SOD-323"
+		(property "Description" "Zener 12V at 5mA 400mW, SOD-323"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -112,7 +112,7 @@
 				)
 			)
 		)
-		(property "ki_keywords" "diode Zener voltage regulator SMD"
+		(property "ki_keywords" "diode Zener voltage-regulator SOD-323 SMD"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)

@@ -23,11 +23,11 @@
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "Description" "N-channel depletion JFET, onsemi TO-92 pinout; generic educational SPICE model"
+		(property "Description" "N-Channel Depletion VDS 25V ID 100mA max IDSS 2–20mA VGS(off) -8V max, TO-92"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "ki_keywords" "transistor N-channel JFET depletion amplifier switch"
+		(property "ki_keywords" "transistor JFET N-channel depletion amplifier RF TO-92 THT"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
@@ -99,11 +99,11 @@
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "Description" "N-channel depletion JFET, onsemi TO-92 pinout; generic educational SPICE model"
+		(property "Description" "N-Channel Depletion VDG 35V IDSS 20mA min VGS(off) -3 to -10V, TO-92"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "ki_keywords" "transistor N-channel JFET depletion amplifier switch"
+		(property "ki_keywords" "transistor JFET N-channel depletion analog-switch TO-92 THT"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
@@ -175,11 +175,11 @@
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "Description" "N-channel depletion JFET, onsemi TO-92 pinout; generic educational SPICE model"
+		(property "Description" "N-Channel Depletion VDG 35V IDSS 5mA min VGS(off) -1 to -5V, TO-92"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "ki_keywords" "transistor N-channel JFET depletion amplifier switch"
+		(property "ki_keywords" "transistor JFET N-channel depletion analog-switch TO-92 THT"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
@@ -251,11 +251,11 @@
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "Description" "N-channel depletion JFET, onsemi TO-92 pinout; generic educational SPICE model"
+		(property "Description" "N-Channel Depletion VDG 35V IDSS 2mA min VGS(off) -0.5 to -3V, TO-92"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(property "ki_keywords" "transistor N-channel JFET depletion amplifier switch"
+		(property "ki_keywords" "transistor JFET N-channel depletion analog-switch TO-92 THT"
 			(at 0 0 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
