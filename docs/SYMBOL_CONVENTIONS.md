@@ -29,6 +29,7 @@ Omit redundant words such as `transistor` after NPN and `diode` after Zener.
 | Zener | Voltage, test current and power: `Zener 12V at 21mA 1.3W, DO-41` |
 | LED | Color, forward voltage and test current: `Generic Red LED 2.0V at 20mA, 5mm` |
 | Operational amplifier | Channels, function and bandwidth: `Dual Low-Power Op-Amp 700kHz, PDIP-8` |
+| Timer | Technology, function and recommended supply range: `Bipolar Precision Timer 4.5–16V, PDIP-8` |
 | Potentiometer | Taper and mounting: `Linear Potentiometer, Horizontal THT` |
 
 ### Values and notation

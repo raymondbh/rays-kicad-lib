@@ -25,10 +25,11 @@ SYMBOL_FILES = (
     "rayslib-mosfet-tht.kicad_sym",
     "rayslib-opamp-tht.kicad_sym",
     "rayslib-passive-tht.kicad_sym",
+    "rayslib-timer-tht.kicad_sym",
 )
 SPICE_FILES = (
     "BJT_NPN.lib", "BJT_PNP.lib", "BJT_Arrays.lib", "Diodes.lib", "JFET.lib", "MOSFET.lib",
-    "OpAmps.lib", "Passives.lib",
+    "OpAmps.lib", "Passives.lib", "Timers.lib",
 )
 SOURCE_PREFIX = "${KICAD_RAYSLIB}/spice/"
 PCM_PREFIX = f"${{KICAD10_3RD_PARTY}}/symbols/{INSTALLED_IDENTIFIER}/spice/"
@@ -81,7 +82,7 @@ def main() -> int:
             zip_write(archive, f"symbols/spice/{filename}", data)
         for filename in ("README.md", "MODEL_SOURCES.md", "LICENSE"):
             zip_write(archive, f"resources/{filename}", read_text_lf(ROOT / filename).encode())
-        for filename in ("SYMBOL_CONVENTIONS.md", "BJT_ARRAYS.md", "PCM_PACKAGING.md"):
+        for filename in ("SYMBOL_CONVENTIONS.md", "BJT_ARRAYS.md", "TIMERS.md", "PCM_PACKAGING.md"):
             zip_write(archive, f"resources/docs/{filename}", read_text_lf(ROOT / 'docs' / filename).encode())
 
     with zipfile.ZipFile(output) as archive:

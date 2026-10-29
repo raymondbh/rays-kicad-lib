@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SYMBOL_DIR = ROOT / "symbol"
 SPICE_DIR = ROOT / "spice"
 
-EXPECTED_SYMBOLS = 64
+EXPECTED_SYMBOLS = 65
 PROPERTY_RE = re.compile(r'\(property "([^"]+)" "([^"]*)"')
 TOP_SYMBOL_RE = re.compile(r'^\t\(symbol "([^"]+)"')
 PIN_NUMBER_RE = re.compile(r'^\s*\(number "([^"]+)"', re.MULTILINE)

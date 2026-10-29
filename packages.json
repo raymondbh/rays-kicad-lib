@@ -18,6 +18,15 @@
       },
       "versions": [
         {
+          "version": "1.4.0",
+          "status": "testing",
+          "kicad_version": "10.0",
+          "download_url": "https://github.com/raymondbh/rays-kicad-lib/releases/download/v1.4.0/rays-kicad-lib-1.4.0-pcm.zip",
+          "download_sha256": "e7092f2c171f2562ed1f135cd608871fe034f06439c9d0416ceb2b22a87011b8",
+          "download_size": 46593,
+          "install_size": 319194
+        },
+        {
           "version": "1.3.0",
           "status": "testing",
           "kicad_version": "10.0",

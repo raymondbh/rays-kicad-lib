@@ -2,7 +2,7 @@
 
 This document records the provenance and intended use of every public model in
 the distributed SPICE libraries. Every public model is used by a distributed
-symbol and exercised by the ngspice smoke test.
+symbol and exercised by an ngspice smoke test or focused regression test.
 
 ## `spice/BJT_NPN.lib`
 
@@ -158,6 +158,31 @@ current mirrors and differential pairs. Mirror collectors use equal voltages
 to separate nominal matching from Early-effect error. These regressions do not
 establish full data-sheet compliance. `tests/check_bjt_kicad.py` verifies actual
 KiCad SPICE/PCB exports, including package grouping and an omitted unit.
+
+## `spice/Timers.lib`
+
+| Model | Status | Provenance |
+|---|---|---|
+| `NE555P` | Used | Repository-authored nominal behavioral model based on [TI NE555 SLFS022K](https://www.ti.com/lit/ds/symlink/ne555.pdf); not an imported manufacturer model. |
+
+The model follows physical PDIP-8 pin order and includes the divider and CONT
+loading, both comparators, latch memory and priorities, RESET, finite output
+drive and the discharge switch.
+
+`tests/check_timer_models.py` checks timing and functional behavior at 5, 9 and
+15 V, including monostable rearming, supply-ramp startup, external control,
+loaded outputs and a local ground offset. `tests/check_timer_kicad.py` verifies
+actual KiCad SPICE/PCB netlists and simulates the exported timer instance.
+Use a supply ramp or an initial RESET pulse for deterministic oscillator startup.
+
+The fixed 50 ns latch time constant and effective 1 nF output capacitance are
+numerical approximations, not measured device parameters. The model is intended
+for nominal timing and resistive-load exercises; it does not establish full
+data-sheet compliance. Input currents and protection, process and temperature
+variation, detailed power consumption, power-on state, switching spikes,
+self-heating, overload and high-frequency performance are not characterized.
+See [timer setup and scope](docs/TIMERS.md) for pin assignments, numerical
+approximations, tested operating conditions and an example.
 
 ## Redistribution note
 

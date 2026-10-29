@@ -26,17 +26,24 @@ macromodels into the same transient analysis.
 The FET test checks DC data-sheet envelopes, JFET cutoff voltages, the MOSFET
 body diode, and transient switching.
 
-Run the new SMD BJT model tests and actual KiCad 10 netlist exports as well:
+Run the SMD BJT and timer model tests and actual KiCad 10 netlist exports as well:
 
 ```text
 python tests/check_bjt_models.py
 python tests/check_bjt_kicad.py --kicad-cli kicad-cli
+python tests/check_timer_models.py
+python tests/check_timer_kicad.py --kicad-cli kicad-cli
 ```
 
 The BJT checks cover all 16 new package models (32 transistor sections), physical
 pin ordering and one PCB/BOM component per package. Generated decks, schematics
 and logs are stored in `dist/`. CI runs the static and ngspice checks; the KiCad
 export test requires a local KiCad 10 installation.
+
+The timer tests verify NE555 astable and monostable timing, latch priorities,
+CONT modulation, deterministic startup and loaded output/discharge behavior at
+5, 9 and 15 V. The KiCad timer check also simulates the exported SPICE instance.
+See [timer setup and scope](TIMERS.md). CI runs the timer model checks too.
 
 On Windows, KiCad's bundled Python and ngspice DLL can run the tests without a
 separate Python or ngspice installation. For example, in PowerShell:
@@ -46,6 +53,8 @@ $env:NGSPICE_DLL = 'C:/Program Files/KiCad/10.0/bin/ngspice.dll'
 & 'C:/Program Files/KiCad/10.0/bin/python.exe' tests/check_bjt_models.py
 & 'C:/Program Files/KiCad/10.0/bin/python.exe' tools/run_ngspice.py tests/smoke/fets.cir
 & 'C:/Program Files/KiCad/10.0/bin/python.exe' tests/check_bjt_kicad.py --kicad-cli 'C:/Program Files/KiCad/10.0/bin/kicad-cli.exe'
+& 'C:/Program Files/KiCad/10.0/bin/python.exe' tests/check_timer_models.py
+& 'C:/Program Files/KiCad/10.0/bin/python.exe' tests/check_timer_kicad.py --kicad-cli 'C:/Program Files/KiCad/10.0/bin/kicad-cli.exe'
 ```
 
 `tools/run_ngspice.py` also accepts the other smoke-test decks listed above.

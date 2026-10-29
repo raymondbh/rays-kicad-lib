@@ -1,0 +1,33 @@
+* Timer models for KiCad/ngspice.
+* Repository-authored nominal NE555 approximation, not a TI SPICE model.
+* Reference: https://www.ti.com/lit/ds/symlink/ne555.pdf (SLFS022K).
+* Public terminals follow physical PDIP-8 pin order.
+* See MODEL_SOURCES.md and docs/TIMERS.md for validation and limitations.
+*
+.SUBCKT NE555P VSS TRIG OUT RESET CONT THRES DISCH VCC
+* The three 5 kohm resistors expose the control-voltage input and its loading.
+R_TOP VCC CONT 5k
+R_MID CONT LOW 5k
+R_BOTTOM LOW VSS 5k
+* Smooth comparators and a regenerative analog latch need no XSPICE library.
+* RESET dominates TRIG; TRIG dominates THRES, as in TI's function table.
+B_SET SET VSS V=0.5*(1+tanh(V(LOW,TRIG)/1m))
+B_CLEAR CLEAR VSS V=0.5*(1+tanh(V(THRES,CONT)/1m))
+B_RUN RUN VSS V=0.5*(1+tanh((V(RESET,VSS)-0.7)/10m))
+B_MEMORY MEMORY VSS V=V(RUN,VSS)*(V(SET,VSS)+(1-V(SET,VSS))*(1-V(CLEAR,VSS))*0.5*(1+tanh(20*(V(STATE,VSS)-0.5))))
+R_MEMORY MEMORY STATE 1k
+C_MEMORY STATE VSS 50p
+B_Q Q VSS V=0.5*(1+tanh(20*(V(STATE,VSS)-0.5)))
+* Bipolar output approximation: 1.4 V source headroom, finite resistance and
+* soft 200 mA current limits. Load currents flow through the supply terminals.
+B_SOURCE VCC OUT I=V(Q,VSS)*0.2*tanh(max(V(VCC,OUT)-1.4,0)/0.6)
+B_SINK OUT VSS I=(1-V(Q,VSS))*0.2*tanh(V(OUT,VSS)/3)
+R_OUT OUT VSS 100meg
+* Effective edge-shaping capacitance, not a measured package capacitance.
+C_OUT OUT VSS 1n
+B_DISCTL DISCTL VSS V=1-V(Q,VSS)
+S_DIS DISCH VSS DISCTL VSS DIS_SWITCH
+.MODEL DIS_SWITCH SW(RON=18 ROFF=10G VT=0.5 VH=0.05)
+* Approximate no-load supply current, including the divider at nominal CONT.
+B_BIAS VCC VSS I=max(0,(0.0007-1/15000)*V(VCC,VSS)-0.0015+0.001*(1-V(Q,VSS)))
+.ENDS NE555P

@@ -25,6 +25,9 @@ jobs:
       - name: Test SMD BJT package models
         run: python tests/check_bjt_models.py
 
+      - name: Test NE555 timer model
+        run: python tests/check_timer_models.py
+
       - name: Run ngspice smoke test
         run: |
           for netlist in tests/smoke/all_models.cir tests/smoke/opamps.cir tests/smoke/ua741_transient.cir tests/smoke/fets.cir; do

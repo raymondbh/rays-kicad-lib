@@ -24,6 +24,10 @@ pairs, and the MMPQ6700 quad. Multi-transistor packages use separate units with
 one shared footprint and SPICE model. See [SMD BJT usage and pinouts](docs/BJT_ARRAYS.md)
 for the full list, selected manufacturers and gain reference conditions.
 
+The THT timer library includes the bipolar TI NE555P in PDIP-8, with a bundled
+ngspice timing model. See [NE555 setup and model scope](docs/TIMERS.md) for
+astable and monostable usage, startup conditions and regression checks.
+
 See [MODEL_SOURCES.md](MODEL_SOURCES.md) for model provenance and calibration
 notes.
 
